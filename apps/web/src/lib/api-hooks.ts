@@ -1,18 +1,18 @@
-import { InfiniteData, useMutation, useQueryClient } from '@tanstack/react-query';
-import { current, produce } from 'immer';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import type { InfiniteData } from '@tanstack/react-query';
+import { current, produce, type WritableDraft } from 'immer';
 import { toast } from 'sonner';
 
-import { commentSchema } from '@sartre/shared/schemas';
-import { Comment, PaginatedResponse, Post, SuccessResponse } from '@sartre/shared/types';
+import type { Comment, PaginatedResponse, Post, SuccessResponse } from '@sartre/shared/types';
 
 import {
     deletePost,
-    GetPostsSuccess,
     postComment,
     postLogout,
     upvoteComment,
     upvotePost
 } from './api';
+import type { GetPostsSuccess } from './api';
 
 const updatePostUpvote = (draft: Post) => {
     draft.points += draft.isUpvoted ? -1 : +1;
@@ -25,7 +25,7 @@ export const useUpvotePost = () => {
     return useMutation({
         mutationFn: upvotePost,
         onMutate: async variable => {
-            let prevData;
+            let prevData: WritableDraft<InfiniteData<GetPostsSuccess, unknown>> | undefined;
             await queryClient.cancelQueries({
                 queryKey: ['post', Number(variable)]
             });
@@ -33,9 +33,8 @@ export const useUpvotePost = () => {
             queryClient.setQueryData<SuccessResponse<Post>>(
                 ['post', Number(variable)],
                 produce(draft => {
-                    if (!draft) {
-                        return undefined;
-                    }
+                    if (!draft) return undefined;
+                    
                     updatePostUpvote(draft.data);
                 })
             );

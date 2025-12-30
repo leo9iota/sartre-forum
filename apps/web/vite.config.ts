@@ -19,9 +19,10 @@ export default defineConfig({
     // apps/web/tsconfig.json has "@/*": ["src/*"], so it matches.
     // I will remove resolve.alias to avoid conflict or just rely on tsconfigPaths.
     server: {
+        port: 3000,
         proxy: {
             '/api': {
-                target: 'http://localhost:3000',
+                target: 'http://localhost:42069',
                 changeOrigin: true
             }
         }

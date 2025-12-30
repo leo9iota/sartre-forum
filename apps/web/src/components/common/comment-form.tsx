@@ -5,8 +5,8 @@ import { commentSchema } from '@sartre/shared/schemas';
 
 import { useCreateComment } from '@/lib/api-hooks';
 
-import { Button } from '../ui/button';
-import { Textarea } from '../ui/textarea';
+import { Button } from '@/ui/button';
+import { Textarea } from '@/ui/textarea';
 import { FieldInfo } from './field-info';
 
 export function CommentForm({

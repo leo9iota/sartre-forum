@@ -15,7 +15,7 @@ import { getCommentComments, userQueryOptions } from '@/lib/api';
 import { useUpvoteComment } from '@/lib/api-hooks';
 import { cn, relativeTime } from '@/lib/utils';
 
-import { Separator } from '../ui/separator';
+import { Separator } from '@/ui/separator';
 import { CommentForm } from './comment-form';
 
 type CommentProps = {

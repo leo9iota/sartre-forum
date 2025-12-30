@@ -8,12 +8,11 @@ import { type Comment, type PaginatedResponse, type SuccessResponse } from '@sar
 
 import { getISOFormatDateQuery } from '@/lib/utils';
 import { db } from '@/adapter';
+import { type Context } from '@/context';
 import { comments } from '@/db/schemas/comments';
 import { posts } from '@/db/schemas/posts';
 import { commentUpvotes } from '@/db/schemas/upvotes';
 import { requireAuth } from '@/middleware/requireAuth';
-
-import { type Context } from '../context';
 
 export const commentsRouter = new Hono<Context>()
     .post(

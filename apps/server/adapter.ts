@@ -9,15 +9,15 @@ import {
     userRelations,
     users,
     verifications
-} from './db/schemas/auth';
-import { commentRelations, comments } from './db/schemas/comments';
-import { postRelations, posts } from './db/schemas/posts';
+} from '@/db/schemas/auth';
+import { commentRelations, comments } from '@/db/schemas/comments';
+import { postRelations, posts } from '@/db/schemas/posts';
 import {
     commentUpvoteRelations,
     commentUpvotes,
     postUpvoteRelations,
     postUpvotes
-} from './db/schemas/upvotes';
+} from '@/db/schemas/upvotes';
 
 const envSchema = z.object({
     DATABASE_URL: z.string().url()

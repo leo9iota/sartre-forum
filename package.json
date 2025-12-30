@@ -17,7 +17,13 @@
         "db:mig": "turbo run db:mig",
         "setup": "bun install && docker compose up postgres-db -d && bun db:push",
         "start": "docker compose up postgres-db -d && bun dev",
-        "stop": "docker compose down && bunx kill-port 3000 5173"
+        "stop": "docker compose down && bun run clean:ports",
+        "clean": "bun run clean:cache && bun run clean:modules",
+        "clean:cache": "rm -rf apps/*/node_modules/.vite apps/*/.turbo packages/*/.turbo .turbo",
+        "clean:modules": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+        "clean:ports": "bunx kill-port 3000 42069",
+        "fresh": "bun run clean && bun install",
+        "check:circular": "bunx madge --circular --extensions ts,tsx apps/web/src apps/server packages/shared"
     },
     "devDependencies": {
         "@sartre/ts": "workspace:*",

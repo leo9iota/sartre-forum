@@ -108,6 +108,7 @@
       },
       "devDependencies": {
         "@sartre/eslint-config": "workspace:*",
+        "@sartre/server": "workspace:*",
         "@sartre/ts": "workspace:*",
         "@scalar/hono-api-reference": "^0.9.30",
         "@tailwindcss/vite": "^4.1.11",

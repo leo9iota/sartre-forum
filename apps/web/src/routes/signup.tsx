@@ -113,7 +113,7 @@ function Signup() {
                       autoComplete='username'
                       disabled={isPending}
                     />
-                    <div className='min-h-[0.75rem]'>
+                    <div className='min-h-3'>
                       <FieldInfo field={field} />
                     </div>
                   </div>
@@ -134,7 +134,7 @@ function Signup() {
                       autoComplete='new-password'
                       disabled={isPending}
                     />
-                    <div className='min-h-[0.75rem]'>
+                    <div className='min-h-3'>
                       <FieldInfo field={field} />
                     </div>
                   </div>
@@ -179,7 +179,7 @@ function Signup() {
                             </div>
                           )}
                         </div>
-                        <div className='min-h-[0.75rem]'>
+                        <div className='min-h-3'>
                           {shouldShowField && <FieldInfo field={field} />}
                         </div>
                       </div>
@@ -192,7 +192,7 @@ function Signup() {
                 children={([errorMap]) => {
                   const submitError = errorMap?.onSubmit;
                   return (
-                    <div className='min-h-[0.75rem]'>
+                    <div className='min-h-3'>
                       {submitError ? (
                         <p className='text-[0.8rem] font-medium text-destructive'>
                           {typeof submitError === 'string' ? submitError : 'An error occurred'}

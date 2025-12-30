@@ -49,9 +49,8 @@ const commentsInfiniteQueryOptions = ({ id, sortBy, order }: z.infer<typeof post
     staleTime: Infinity,
     retry: false,
     getNextPageParam: (lastPage, _, lastPageParam) => {
-      if (lastPage.pagination.totalPages <= lastPageParam) {
-        return undefined;
-      }
+      if (lastPage.pagination.totalPages <= lastPageParam) return undefined;
+      
       return lastPageParam + 1;
     }
   });

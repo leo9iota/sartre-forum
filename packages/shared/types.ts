@@ -1,9 +1,6 @@
 import { z } from 'zod';
 
-import type { ApiRoutes } from '../../apps/server/index';
 import type { orderSchema, sortBySchema } from './schemas';
-
-export { type ApiRoutes };
 
 // type defs, stuff that the api (server) returns to the UI (client)
 export type SuccessResponse<T = void> = {

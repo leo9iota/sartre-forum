@@ -1,12 +1,12 @@
 import { useNavigate } from '@tanstack/react-router';
 import { ArrowUpIcon } from 'lucide-react';
 
-import { Order, SortBy } from '@sartre/shared/types';
+import type { Order, SortBy } from '@sartre/shared/types';
 
 import { cn } from '@/lib/utils';
 
-import { Button } from '../ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { Button } from '@/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui/select';
 
 export function SortButton({ sortBy, order }: { sortBy: SortBy; order: Order }) {
   const navigate = useNavigate();

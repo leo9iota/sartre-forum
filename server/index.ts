@@ -44,17 +44,14 @@ app.get(
     Scalar({
         url: '/api-spec.json',
         theme: 'purple',
-        pageTitle: 'Murderous Hack API Documentation',
+        pageTitle: 'sartre API Documentation',
     }),
 );
 
 // Serve the OpenAPI spec file
 app.get('/api-spec.json', serveStatic({ path: './docs/api/api-spec.json' }));
 
-const routes = app
-    .basePath('/api')
-    .route('/posts', postRouter)
-    .route('/comments', commentsRouter);
+const routes = app.basePath('/api').route('/posts', postRouter).route('/comments', commentsRouter);
 
 routes.onError((err, c) => {
     if (err instanceof HTTPException) {
@@ -65,9 +62,7 @@ routes.onError((err, c) => {
                     success: false,
                     error: err.message,
                     isFormError:
-                        err.cause &&
-                        typeof err.cause === 'object' &&
-                        'form' in err.cause
+                        err.cause && typeof err.cause === 'object' && 'form' in err.cause
                             ? err.cause.form === true
                             : false,
                 },

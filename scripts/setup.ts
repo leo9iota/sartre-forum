@@ -23,55 +23,53 @@ async function fileExists(path: string): Promise<boolean> {
 
 (async () => {
     try {
-        console.log('🚀 Setting up Murderous Hack development environment...');
+        console.log('Setting up sartre development environment...');
 
-        console.log('🆗 Creating .env file...');
+        console.log('Creating .env file...');
         if (await fileExists('.env')) {
-            console.log('⚠️ .env already exists');
+            console.log('.env already exists');
         } else if (await fileExists('.env.example')) {
             await runCommand('cp .env.example .env');
-            console.log('🆗 .env created from .env.example');
+            console.log('.env created from .env.example');
         } else {
-            console.log(
-                '⚠️ No .env.example found, you may need to create .env manually',
-            );
+            console.log('No .env.example found, you may need to create .env manually');
         }
 
-        console.log('🆗 Installing root dependencies...');
+        console.log('Installing root dependencies...');
         await runCommand('bun install');
 
-        console.log('🆗 Installing frontend dependencies...');
+        console.log('Installing frontend dependencies...');
         await runCommand('bun install', 'frontend');
 
         // Now we can import the typed shell API since dependencies are installed
         const { $ } = await import('bun');
 
-        console.log('🆗 Stopping existing containers...');
+        console.log('Stopping existing containers...');
         await $`docker compose down`;
 
-        console.log('🆗 Starting database container...');
+        console.log('Starting database container...');
         await $`docker compose up -d postgres-db`;
 
-        console.log('⌛ Waiting for database to be fully ready...');
+        console.log('Waiting for database to be fully ready...');
         await new Promise((resolve) => setTimeout(resolve, 6969));
 
-        console.log('🆗 Pushing database schema...');
+        console.log('Pushing database schema...');
         try {
             await $`bunx drizzle-kit push`;
         } catch (error) {
-            console.error('❌ Failed to push schema:', error);
+            console.error('Failed to push schema:', error);
             throw error;
         }
 
-        console.log('✅ Setup complete!\n');
-        console.log('🌐 Development URLs:');
-        console.log('✨ Frontend:   http://localhost:3001');
-        console.log('✨ Backend:    http://localhost:3000');
-        console.log('✨ API Docs:   http://localhost:3000/docs\n');
-        console.log('💡 Start development with the following command:');
+        console.log('Setup complete!\n');
+        console.log('Development URLs:');
+        console.log('Frontend:   http://localhost:3001');
+        console.log('Backend:    http://localhost:3000');
+        console.log('API Docs:   http://localhost:3000/docs\n');
+        console.log('Start development with the following command:');
         console.log('$ bun start');
     } catch (error) {
-        console.error('❌ Setup failed:', error);
+        console.error('Setup failed:', error);
         process.exit(1);
     }
 })();

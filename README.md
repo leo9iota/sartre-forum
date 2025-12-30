@@ -1,6 +1,6 @@
-# sartre
+# Sartre
 
-**sartre** is a forum for discussing tech related topics.
+Sartre is a forum for discussing tech related topics.
 
 ## Tech Stack
 
@@ -8,24 +8,42 @@
 
 ## Quick Start
 
-> **Prerequisites**: You need to have [Bun](https://bun.com/docs/installation) installed.
+> You need to have [Bun](https://bun.com/docs/installation) and Docker [Docker](https://www.docker.com/) installed
 
-1. Setup project
+1. Clone the repo
 
 ```sh
-...
+git clone https://github.com/leo9iota/sartre-forum.git && cd sartre-forum
 ```
 
-2. Start the server and frontend
+2. Install dependencies
 
 ```sh
-...
+bun i
 ```
 
-3. Stop everything
+3. Set up .env variables
 
 ```sh
-...
+cp .env.example .env
+```
+
+4. Start postgres db with Docker
+
+```sh
+docker compose up postgres-db -d
+```
+
+5. Push db schema
+
+```sh
+bun db:push
+```
+
+6. Start dev servers (frontend + server)
+
+```sh
+bun dev
 ```
 
 ## Architecture

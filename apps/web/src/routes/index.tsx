@@ -55,8 +55,8 @@ export const Route = createFileRoute('/')({
     author: search.author,
     site: search.site
   }),
-  loader: ({ context, deps: { sortBy, order, author, site } }) => {
-    context.queryClient.ensureInfiniteQueryData(
+  loader: async ({ context, deps: { sortBy, order, author, site } }) => {
+    await context.queryClient.ensureInfiniteQueryData(
       postsInfiniteQueryOptions({ sortBy, order, author, site })
     );
   }

@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
-import { createAuthClient } from 'better-auth/react';
 import ReactDOM from 'react-dom/client';
 
 import { routeTree } from './routeTree.gen';
@@ -13,11 +12,6 @@ import { ErrorInfo } from './components/common/error-info';
 import { NotFound } from './components/common/not-found';
 
 const queryClient = new QueryClient();
-
-// Create Better Auth client
-const authClient = createAuthClient({
-  baseURL: 'http://localhost:3000/api/auth'
-});
 
 // Set up a Router instance
 const router = createRouter({
@@ -44,11 +38,9 @@ declare module '@tanstack/react-router' {
 
 const rootElement = document.getElementById('app')!;
 
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  );
-}
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>
+);

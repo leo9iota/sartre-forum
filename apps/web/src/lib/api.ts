@@ -1,11 +1,14 @@
 import { queryOptions } from '@tanstack/react-query';
 import { notFound } from '@tanstack/react-router';
-import { hc, InferResponseType } from 'hono/client';
+import { hc, type InferResponseType } from 'hono/client';
 
 import type {
     ApiRoutes,
+    Comment,
     ErrorResponse,
     Order,
+    PaginatedResponse,
+    Post,
     SortBy,
     SuccessResponse
 } from '@sartre/shared/types';
@@ -20,7 +23,7 @@ const client = hc<ApiRoutes>('/', {
 
 export const postSignup = async (username: string, password: string) => {
     try {
-        const res = await fetch('/api/auth/sign-up/email', {
+        const response = await fetch('/api/auth/sign-up/email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,25 +36,25 @@ export const postSignup = async (username: string, password: string) => {
             })
         });
 
-        if (res.ok) {
-            const result = await res.json();
+        if (response.ok) {
+            const result = await response.json();
             return {
                 success: true,
                 message: 'Signup successful',
                 data: { username: result.user.name }
-            } as SuccessResponse;
+            } as SuccessResponse<{ username: string }>;
         }
 
-        const result = await res.json();
+        const result = await response.json();
         return {
             success: false,
             error: result.message || 'Signup failed',
             isFormError: true
         } as ErrorResponse;
-    } catch (err) {
+    } catch (error) {
         return {
             success: false,
-            error: String(err),
+            error: String(error),
             isFormError: false
         } as ErrorResponse;
     }
@@ -59,7 +62,7 @@ export const postSignup = async (username: string, password: string) => {
 
 export const postLogin = async (username: string, password: string) => {
     try {
-        const res = await fetch('/api/auth/sign-in/email', {
+        const response = await fetch('/api/auth/sign-in/email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -71,31 +74,31 @@ export const postLogin = async (username: string, password: string) => {
             })
         });
 
-        if (res.ok) {
-            const result = await res.json();
+        if (response.ok) {
+            const result = await response.json();
             return {
                 success: true,
                 message: 'Login successful',
                 data: { username: result.user.name }
-            } as SuccessResponse;
+            } as SuccessResponse<{ username: string }>;
         }
 
-        const result = await res.json();
+        const result = await response.json();
         return {
             success: false,
             error: result.message || 'Login failed',
             isFormError: true
         } as ErrorResponse;
-    } catch (err) {
+    } catch (error) {
         return {
             success: false,
-            error: String(err),
+            error: String(error),
             isFormError: false
         } as ErrorResponse;
     }
 };
 
-export type GetPostsSuccess = InferResponseType<typeof client.posts.$get>;
+export type GetPostsSuccess = PaginatedResponse<Post[]>;
 export const getPosts = async ({
     pageParam = 1,
     pagination
@@ -107,37 +110,37 @@ export const getPosts = async ({
         author?: string;
         site?: string;
     };
-}) => {
-    const res = await client.posts.$get({
+}): Promise<PaginatedResponse<Post[]>> => {
+    const response = await client.posts.$get({
         query: {
-            page: pageParam.toString(),
+            page: pageParam,
             sortBy: pagination.sortBy,
             order: pagination.order,
             author: pagination.author,
             site: pagination.site
         }
     });
-    if (!res.ok) {
-        const data = (await res.json()) as unknown as ErrorResponse;
+    if (!response.ok) {
+        const data = (await response.json()) as unknown as ErrorResponse;
         throw new Error(data.error);
     }
-    const data = await res.json();
-    return data;
+    const data = await response.json();
+    return data as PaginatedResponse<Post[]>;
 };
 
 export const getUser = async () => {
     try {
-        const res = await fetch('/api/user', {
+        const response = await fetch('/api/user', {
             method: 'GET',
             credentials: 'include'
         });
 
-        if (res.ok) {
-            const result = await res.json();
+        if (response.ok) {
+            const result = await response.json();
             return result.data?.username || null;
         }
         return null;
-    } catch (err) {
+    } catch (error) {
         return null;
     }
 };
@@ -148,17 +151,17 @@ export const userQueryOptions = () =>
         staleTime: Infinity
     });
 
-export async function upvotePost(id: string) {
-    const res = await client.posts[':id'].upvote.$post({
+export async function upvotePost(id: string): Promise<SuccessResponse<{ count: number; isUpvoted: boolean }>> {
+    const response = await (client.posts[':id'] as any).upvote.$post({
         param: {
             id
         }
     });
-    if (res.ok) {
-        const data = await res.json();
+    if (response.ok) {
+        const data = await response.json();
         return data;
     }
-    const data = (await res.json()) as unknown as ErrorResponse;
+    const data = (await response.json()) as unknown as ErrorResponse;
     throw new Error(data.error);
 }
 
@@ -167,7 +170,7 @@ export const postSubmit = async (title: string, url: string, content: string) =>
         console.log('Submitting post with data:', { title, url, content });
 
         // Temporary: Use manual fetch instead of Hono client
-        const res = await fetch('/api/posts', {
+        const response = await fetch('/api/posts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -180,36 +183,36 @@ export const postSubmit = async (title: string, url: string, content: string) =>
             })
         });
 
-        console.log('Response status:', res.status);
-        if (res.ok) {
-            const data = await res.json();
+        console.log('Response status:', response.status);
+        if (response.ok) {
+            const data = await response.json();
             return data;
         }
-        const data = (await res.json()) as unknown as ErrorResponse;
+        const data = (await response.json()) as unknown as ErrorResponse;
         return data;
-    } catch (err) {
+    } catch (error) {
         return {
             success: false,
-            error: String(err),
+            error: String(error),
             isFormError: false
         } as ErrorResponse;
     }
 };
 
 export const getPost = async (id: number) => {
-    const res = await client.posts[':id'].$get({
+    const response = await client.posts[':id'].$get({
         param: {
             id: id.toString()
         }
     });
-    if (res.ok) {
-        const data = await res.json();
-        return data;
+    if (response.ok) {
+        const data = await response.json();
+        return data as SuccessResponse<Post>;
     } else {
-        if (res.status === 404) {
+        if (response.status === 404) {
             throw notFound();
         }
-        const data = (await res.json()) as unknown as ErrorResponse;
+        const data = (await response.json()) as unknown as ErrorResponse;
         throw new Error(data.error);
     }
 };
@@ -222,65 +225,75 @@ export async function getComments(
         sortBy?: SortBy;
         order?: Order;
     }
-) {
-    const res = await client.posts[':id'].comments.$get({
+): Promise<PaginatedResponse<Comment[]>> {
+    const response = await client.posts[':id'].comments.$get({
         param: {
             id: id.toString()
         },
         query: {
-            page: page.toString(),
-            limit: limit.toString(),
-            includeChildren: 'true',
+            page: page,
+            limit: limit,
+            includeChildren: true,
             sortBy: pagination.sortBy,
             order: pagination.order
         }
     });
 
-    if (res.ok) {
-        const data = await res.json();
-        return data;
+    if (response.ok) {
+        const data = await response.json();
+        return data as PaginatedResponse<Comment[]>;
     } else {
-        const data = (await res.json()) as unknown as ErrorResponse;
+        const data = (await response.json()) as unknown as ErrorResponse;
         throw new Error(data.error);
     }
 }
 
-export async function getCommentComments(id: number, page: number = 1, limit: number = 2) {
-    const res = await client.comments[':id'].comments.$get({
+export async function getCommentComments(
+    id: number,
+    page: number = 1,
+    limit: number = 2
+): Promise<PaginatedResponse<Comment[]>> {
+    const response = await client.comments[':id'].comments.$get({
         param: {
             id: id.toString()
         },
         query: {
-            page: page.toString(),
-            limit: limit.toString()
+            page: page,
+            limit: limit
         }
     });
-    if (res.ok) {
-        const data = await res.json();
-        return data;
+    if (response.ok) {
+        const data = await response.json();
+        return data as PaginatedResponse<Comment[]>;
     } else {
-        const data = (await res.json()) as unknown as ErrorResponse;
+        const data = (await response.json()) as unknown as ErrorResponse;
         throw new Error(data.error);
     }
 }
 
-export async function upvoteComment(id: string) {
-    const res = await client.comments[':id'].upvote.$post({
+export async function upvoteComment(
+    id: string
+): Promise<SuccessResponse<{ count: number; isUpvoted: boolean; commentUpvotes: { userId: string }[] }>> {
+    const response = await (client.comments[':id'] as any).upvote.$post({
         param: {
             id
         }
     });
-    if (res.ok) {
-        return await res.json();
+    if (response.ok) {
+        return await response.json();
     }
-    const data = (await res.json()) as unknown as ErrorResponse;
+    const data = (await response.json()) as unknown as ErrorResponse;
     throw Error(data.error);
 }
 
-export async function postComment(id: number, content: string, isNested?: boolean) {
+export async function postComment(
+    id: number,
+    content: string,
+    isNested?: boolean
+): Promise<SuccessResponse<Comment> | ErrorResponse> {
     try {
-        const res = isNested
-            ? await client.comments[':id'].$post({
+        const response = isNested
+            ? await (client.comments[':id'] as any).$post({
                   json: {
                       content
                   },
@@ -288,7 +301,7 @@ export async function postComment(id: number, content: string, isNested?: boolea
                       id: id.toString()
                   }
               })
-            : await client.posts[':id'].comment.$post({
+            : await (client.posts[':id'] as any).comment.$post({
                   json: {
                       content
                   },
@@ -297,39 +310,39 @@ export async function postComment(id: number, content: string, isNested?: boolea
                   }
               });
 
-        if (res.ok) {
-            return await res.json();
+        if (response.ok) {
+            return await response.json();
         }
-        const data = (await res.json()) as unknown as ErrorResponse;
+        const data = (await response.json()) as unknown as ErrorResponse;
         return data;
-    } catch (err) {
+    } catch (error) {
         return {
             success: false,
-            error: String(err),
+            error: String(error),
             isFormError: false
         } as ErrorResponse;
     }
 }
 
-export async function deletePost(id: number) {
+export async function deletePost(id: number): Promise<SuccessResponse<null> | ErrorResponse> {
     try {
-        const res = await client.posts[':id'].$delete({
+        const response = await (client.posts[':id'] as any).$delete({
             param: {
                 id: id.toString()
             }
         });
 
-        if (res.ok) {
-            const data = await res.json();
+        if (response.ok) {
+            const data = await response.json();
             return data;
         }
 
-        const data = (await res.json()) as unknown as ErrorResponse;
+        const data = (await response.json()) as unknown as ErrorResponse;
         return data;
-    } catch (err) {
+    } catch (error) {
         return {
             success: false,
-            error: String(err),
+            error: String(error),
             isFormError: false
         } as ErrorResponse;
     }
@@ -342,10 +355,10 @@ export const postLogout = async () => {
             credentials: 'include'
         });
         return { success: true } as SuccessResponse;
-    } catch (err) {
+    } catch (error) {
         return {
             success: false,
-            error: String(err),
+            error: String(error),
             isFormError: false
         } as ErrorResponse;
     }

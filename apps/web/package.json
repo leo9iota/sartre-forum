@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "typecheck": "tsc --noEmit",
-        "dev": "vite --port=3001",
+        "dev": "vite",
         "lint": "eslint .",
         "build": "vite build",
         "serve": "vite preview",
@@ -13,6 +13,7 @@
     },
     "devDependencies": {
         "@sartre/eslint-config": "workspace:*",
+        "@sartre/server": "workspace:*",
         "@sartre/ts": "workspace:*",
         "@scalar/hono-api-reference": "^0.9.30",
         "@tailwindcss/vite": "^4.1.11",

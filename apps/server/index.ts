@@ -6,11 +6,11 @@ import { HTTPException } from 'hono/http-exception';
 
 import { type ErrorResponse } from '@sartre/shared/types';
 
-import { auth } from './auth';
-import type { Context } from './context';
-import { authMiddleware } from './middleware/auth';
-import { commentsRouter } from './routes/comments';
-import { postRouter } from './routes/posts';
+import { commentsRouter } from '@/routes/comments';
+import { postRouter } from '@/routes/posts';
+import { auth } from '@/auth';
+import type { Context } from '@/context';
+import { authMiddleware } from '@/middleware/auth';
 
 const app = new Hono<Context>();
 
@@ -87,10 +87,10 @@ app.get('*', serveStatic({ root: './frontend/dist' }));
 app.get('*', serveStatic({ path: './frontend/dist/index.html' }));
 
 export default {
-    port: process.env['PORT'] || 3000,
+    port: process.env['PORT'] || 42069,
     hostname: '0.0.0.0',
     fetch: app.fetch
 };
 
-console.log('Server Running on port', process.env['PORT'] || 3000);
+console.log('Server Running on port', process.env['PORT'] || 42069);
 export type ApiRoutes = typeof routes;

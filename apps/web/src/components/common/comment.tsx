@@ -9,7 +9,7 @@ import {
   PlusIcon
 } from 'lucide-react';
 
-import { Comment as CommentType } from '@sartre/shared/types';
+import type { Comment as CommentType } from '@sartre/shared/types';
 
 import { getCommentComments, userQueryOptions } from '@/lib/api';
 import { useUpvoteComment } from '@/lib/api-hooks';
@@ -52,8 +52,6 @@ export function Comment({
       pageParams: [1],
       pages: [
         {
-          success: true,
-          message: 'Comments fetched',
           data: comment.childComments ?? [],
           pagination: {
             page: 1,

@@ -1,6 +1,6 @@
-import React from 'react';
+import { lazy } from 'react';
 
-import { type QueryClient } from '@tanstack/react-query';
+import type { QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 
@@ -13,12 +13,12 @@ interface RouterContext {
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === 'production'
-    ? () => null // Render nothing in production
-    : React.lazy(() =>
-        // Lazy load in development
+    ? () => null // render nothing in production
+    : lazy(() =>
+        // lazy load in dev
         import('@tanstack/react-router-devtools').then(res => ({
           default: res.TanStackRouterDevtools
-          // For Embedded Mode
+          // for Embedded Mode
           // default: res.TanStackRouterDevtoolsPanel
         }))
       );

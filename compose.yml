@@ -5,11 +5,11 @@ services:
       dockerfile: Dockerfile
     environment:
       - PORT=3000
-      - DATABASE_URL=postgresql://user:password@postgres-db:5432/murderous-hack-db
+      - DATABASE_URL=postgresql://user:password@postgres-db:5432/sartre-db
     depends_on:
       - postgres-db
     networks:
-      - murderous-hack-network
+      - sartre-network
     ports:
       - '3000:3000'
 
@@ -18,16 +18,16 @@ services:
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=murderous-hack-db
+      - POSTGRES_DB=sartre-db
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
-      - murderous-hack-network
+      - sartre-network
     ports:
       - '5432:5432'
 
 networks:
-  murderous-hack-network:
+  sartre-network:
     driver: bridge
 
 volumes:

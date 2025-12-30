@@ -1,8 +1,6 @@
-# Murderous Hack
+# sartre
 
-**Murderous Hack** is a forum for discussing tech related topics.
-
->**Quote**: A teacher once said: "Das ist ein mörderischer Häck"
+**sartre** is a forum for discussing tech related topics.
 
 ## Tech Stack
 
@@ -32,8 +30,8 @@ bun stop
 
 ## Architecture
 
-![Architecture](./docs/images/murderous-hack-architecture.png)
-![Auth](./docs/images/murderous-hack-auth.png)
+![Architecture](./docs/images/sartre-architecture.png)
+![Auth](./docs/images/sartre-auth.png)
 
 ## Features
 

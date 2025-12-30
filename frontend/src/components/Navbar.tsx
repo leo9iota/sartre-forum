@@ -26,30 +26,20 @@ export function Navbar() {
   };
 
   return (
-    <header className='bg-mh-primary sticky top-0 z-50 w-full border-border/40 backdrop-blur-sm'>
+    <header className='bg-sartre-primary sticky top-0 z-50 w-full border-border/40 backdrop-blur-sm'>
       <div className='container mx-auto flex items-center justify-between p-4'>
         <div className='flex items-center space-x-4'>
           <Link to='/' className='flex items-center'>
-            <img src='/logo.svg' alt='Murderous Hack' className='size-10' />
+            <img src='/logo.svg' alt='sartre' className='size-10' />
           </Link>
           <div>
-            <h1>
-              Murderous Hack
-            </h1>
+            <h1>sartre</h1>
           </div>
           <nav className='hidden items-center space-x-4 md:flex'>
-            <Link
-              to={'/'}
-              search={{ sortBy: 'recent', order: 'desc' }}
-              className='hover:underline'
-            >
+            <Link to={'/'} search={{ sortBy: 'recent', order: 'desc' }} className='hover:underline'>
               new
             </Link>
-            <Link
-              className='hover:underline'
-              to={'/'}
-              search={{ sortBy: 'points', order: 'desc' }}
-            >
+            <Link className='hover:underline' to={'/'} search={{ sortBy: 'points', order: 'desc' }}>
               top
             </Link>
             <Link to='/submit' className='hover:underline'>
@@ -90,8 +80,8 @@ export function Navbar() {
           <SheetContent className='mb-2'>
             <SheetHeader>
               <SheetTitle className='flex items-center gap-2'>
-                <img src='/logo.svg' alt='Murderous Hack' className='size-6' />
-                Murderous Hack
+                <img src='/logo.svg' alt='sartre' className='size-6' />
+                sartre
               </SheetTitle>
               <SheetDescription className='sr-only'>Navigation</SheetDescription>
             </SheetHeader>
@@ -112,11 +102,7 @@ export function Navbar() {
               >
                 top
               </Link>
-              <Link
-                onClick={() => setIsOpen(false)}
-                className='hover:underline'
-                to='/submit'
-              >
+              <Link onClick={() => setIsOpen(false)} className='hover:underline' to='/submit'>
                 submit
               </Link>
               {user ? (

@@ -29,15 +29,15 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootComponent() {
   return (
     <>
-      <div className='bg-mh-secondary flex min-h-screen flex-col text-foreground'>
+      <div className='bg-sartre-secondary flex min-h-screen flex-col text-foreground'>
         <Navbar />
         <main className='container mx-auto grow p-4'>
           <Outlet />
         </main>
         <footer className='p-4 text-center'>
           <p className='flex items-center justify-center gap-2 text-sm text-muted-foreground'>
-            <img src='/logo.svg' alt='Murderous Hack' className='size-4' />
-            Murderous Hack &copy;
+            <img src='/logo.svg' alt='sartre' className='size-4' />
+            sartre &copy;
           </p>
         </footer>
       </div>

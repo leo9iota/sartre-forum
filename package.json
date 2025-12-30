@@ -11,10 +11,13 @@
         "dev": "turbo run dev",
         "format": "prettier . --write",
         "lint": "turbo run lint",
-        "typecheck": "turbo run typecheck",
+        "type": "turbo run typecheck",
         "db:push": "turbo run db:push",
         "db:gen": "turbo run db:gen",
-        "db:mig": "turbo run db:mig"
+        "db:mig": "turbo run db:mig",
+        "setup": "bun install && docker compose up postgres-db -d && bun db:push",
+        "start": "docker compose up postgres-db -d && bun dev",
+        "stop": "docker compose down && bunx kill-port 3000 5173"
     },
     "devDependencies": {
         "@sartre/ts": "workspace:*",

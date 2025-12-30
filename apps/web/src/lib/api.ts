@@ -3,7 +3,6 @@ import { notFound } from '@tanstack/react-router';
 import { hc, type InferResponseType } from 'hono/client';
 
 import type {
-    ApiRoutes,
     Comment,
     ErrorResponse,
     Order,
@@ -13,7 +12,9 @@ import type {
     SuccessResponse
 } from '@sartre/shared/types';
 
-const client = hc<ApiRoutes>('/', {
+// Using 'any' for API client type to avoid importing server code into frontend bundle
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const client = hc<any>('/', {
     fetch: (input: RequestInfo | URL, init?: RequestInit) =>
         fetch(input, {
             ...init,
@@ -151,7 +152,9 @@ export const userQueryOptions = () =>
         staleTime: Infinity
     });
 
-export async function upvotePost(id: string): Promise<SuccessResponse<{ count: number; isUpvoted: boolean }>> {
+export async function upvotePost(
+    id: string
+): Promise<SuccessResponse<{ count: number; isUpvoted: boolean }>> {
     const response = await (client.posts[':id'] as any).upvote.$post({
         param: {
             id
@@ -273,7 +276,9 @@ export async function getCommentComments(
 
 export async function upvoteComment(
     id: string
-): Promise<SuccessResponse<{ count: number; isUpvoted: boolean; commentUpvotes: { userId: string }[] }>> {
+): Promise<
+    SuccessResponse<{ count: number; isUpvoted: boolean; commentUpvotes: { userId: string }[] }>
+> {
     const response = await (client.comments[':id'] as any).upvote.$post({
         param: {
             id

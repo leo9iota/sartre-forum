@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
 import { ChevronUpIcon, MoreVerticalIcon, Trash2Icon } from 'lucide-react';
 
-import { Post as PostType } from '@sartre/shared/types';
+import type { Post as PostType } from '@sartre/shared/types';
 
 import { userQueryOptions } from '@/lib/api';
 import { useDeletePost } from '@/lib/api-hooks';
@@ -19,16 +19,16 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle
-} from '../ui/alert-dialog';
-import { badgeVariants } from '../ui/badge';
-import { Button } from '../ui/button';
-import { Card, CardContent, CardTitle } from '../ui/card';
+} from '@/ui/alert-dialog';
+import { badgeVariants } from '@/ui/badge';
+import { Button } from '@/ui/button';
+import { Card, CardContent, CardTitle } from '@/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
-} from '../ui/dropdown-menu';
+} from '@/ui/dropdown-menu';
 
 export const Post = ({ post, onUpvote }: { post: PostType; onUpvote?: (id: number) => void }) => {
   const { data: user } = useQuery(userQueryOptions());

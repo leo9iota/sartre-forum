@@ -18,6 +18,8 @@
         "noUnusedParameters": true,
         "noPropertyAccessFromIndexSignature": true,
         "resolveJsonModule": true,
-        "isolatedModules": true
+        "isolatedModules": true,
+        "forceConsistentCasingInFileNames": true,
+        "noUncheckedIndexedAccess": true
     }
 }

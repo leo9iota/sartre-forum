@@ -3,7 +3,11 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./*"]
+            "@/*": ["./*"],
+            "@/db/*": ["./db/*"],
+            "@/routes/*": ["./routes/*"],
+            "@/middleware/*": ["./middleware/*"],
+            "@sartre/shared/*": ["../../packages/shared/*"]
         }
     },
     "include": ["."],

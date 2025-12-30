@@ -3,12 +3,9 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/server/*": ["./apps/server/*"],
-            "@/web/*": ["./apps/web/*"],
-            "@/ui/*": ["./apps/web/src/components/ui/*"],
-            "@/common/*": ["./apps/web/src/components/common/*"],
-            "@/shared/*": ["./packages/shared/*"],
-            "@/eslint/*": ["./packages/eslint/*"]
+            "@sartre/shared/*": ["./packages/shared/*"],
+            "@sartre/server": ["./apps/server/index.ts"],
+            "@sartre/web/*": ["./apps/web/src/*"]
         }
     }
 }

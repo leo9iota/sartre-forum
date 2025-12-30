@@ -1,15 +1,16 @@
 {
-    "extends": "@sartre/ts/react.json",
+    "extends": "@sartre/ts/tsconfig.web.json",
     "compilerOptions": {
         "baseUrl": ".",
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noImplicitAny": false,
         "paths": {
-            "@sartre/shared/*": ["../../packages/shared/*"],
+            "@/*": ["./src/*"],
             "@/ui/*": ["./src/components/ui/*"],
             "@/common/*": ["./src/components/common/*"],
-            "@/*": ["./src/*"]
+            "@/layout/*": ["./src/components/layout/*"],
+            "@sartre/shared/*": ["../../packages/shared/*"],
         }
     }
 }

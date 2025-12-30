@@ -9,8 +9,8 @@
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
 
-    --color-mh-primary: #ff6600;
-    --color-mh-secondary: #fdf5e6;
+    --color-sartre-primary: #ff6600;
+    --color-sartre-secondary: #fdf5e6;
     --color-background: hsl(var(--background));
     --color-foreground: hsl(var(--foreground));
 

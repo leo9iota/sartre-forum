@@ -1,8 +1,8 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 
-import { db } from './adapter';
-import { accounts, sessions, users, verifications } from './db/schemas/auth';
+import { db } from '@/adapter';
+import { accounts, sessions, users, verifications } from '@/db/schemas/auth';
 
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
@@ -14,8 +14,8 @@ export const auth = betterAuth({
             verification: verifications
         }
     }),
-    baseURL: 'http://localhost:3000',
-    trustedOrigins: ['http://localhost:3001', 'http://localhost:3002'],
+    baseURL: 'http://localhost:42069',
+    trustedOrigins: ['http://localhost:3000'],
     emailAndPassword: {
         enabled: true,
         requireEmailVerification: false

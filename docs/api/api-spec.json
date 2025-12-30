@@ -20,9 +20,7 @@
             "get": {
                 "summary": "Get current user",
                 "description": "Returns the currently authenticated user's information",
-                "tags": [
-                    "Authentication"
-                ],
+                "tags": ["Authentication"],
                 "security": [
                     {
                         "cookieAuth": []
@@ -71,9 +69,7 @@
             "post": {
                 "summary": "Create new user account",
                 "description": "Register a new user with username and password",
-                "tags": [
-                    "Authentication"
-                ],
+                "tags": ["Authentication"],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -95,10 +91,7 @@
                                         "example": "securepassword123"
                                     }
                                 },
-                                "required": [
-                                    "username",
-                                    "password"
-                                ]
+                                "required": ["username", "password"]
                             }
                         }
                     }
@@ -131,9 +124,7 @@
             "post": {
                 "summary": "Login user",
                 "description": "Authenticate user with username and password",
-                "tags": [
-                    "Authentication"
-                ],
+                "tags": ["Authentication"],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -150,10 +141,7 @@
                                         "example": "securepassword123"
                                     }
                                 },
-                                "required": [
-                                    "username",
-                                    "password"
-                                ]
+                                "required": ["username", "password"]
                             }
                         }
                     }
@@ -186,9 +174,7 @@
             "get": {
                 "summary": "Logout user",
                 "description": "End the current user session",
-                "tags": [
-                    "Authentication"
-                ],
+                "tags": ["Authentication"],
                 "security": [
                     {
                         "cookieAuth": []
@@ -205,9 +191,7 @@
             "get": {
                 "summary": "Get posts",
                 "description": "Retrieve a paginated list of posts with optional filtering and sorting",
-                "tags": [
-                    "Posts"
-                ],
+                "tags": ["Posts"],
                 "parameters": [
                     {
                         "name": "limit",
@@ -236,10 +220,7 @@
                         "description": "Sort posts by",
                         "schema": {
                             "type": "string",
-                            "enum": [
-                                "points",
-                                "recent"
-                            ],
+                            "enum": ["points", "recent"],
                             "default": "points"
                         }
                     },
@@ -249,10 +230,7 @@
                         "description": "Sort order",
                         "schema": {
                             "type": "string",
-                            "enum": [
-                                "asc",
-                                "desc"
-                            ],
+                            "enum": ["asc", "desc"],
                             "default": "desc"
                         }
                     },
@@ -307,9 +285,7 @@
             "post": {
                 "summary": "Create new post",
                 "description": "Create a new post (requires authentication)",
-                "tags": [
-                    "Posts"
-                ],
+                "tags": ["Posts"],
                 "security": [
                     {
                         "cookieAuth": []
@@ -336,9 +312,7 @@
                                         "example": "This is the content of the post..."
                                     }
                                 },
-                                "required": [
-                                    "title"
-                                ]
+                                "required": ["title"]
                             }
                         }
                     }
@@ -399,9 +373,7 @@
             "get": {
                 "summary": "Get single post",
                 "description": "Retrieve a specific post by ID",
-                "tags": [
-                    "Posts"
-                ],
+                "tags": ["Posts"],
                 "parameters": [
                     {
                         "name": "id",
@@ -453,9 +425,7 @@
             "post": {
                 "summary": "Upvote/downvote post",
                 "description": "Toggle upvote on a post (requires authentication)",
-                "tags": [
-                    "Posts"
-                ],
+                "tags": ["Posts"],
                 "security": [
                     {
                         "cookieAuth": []
@@ -528,9 +498,7 @@
             "post": {
                 "summary": "Create comment",
                 "description": "Create a new comment on a post (requires authentication)",
-                "tags": [
-                    "Comments"
-                ],
+                "tags": ["Comments"],
                 "security": [
                     {
                         "cookieAuth": []
@@ -559,9 +527,7 @@
                                         "example": "This is a great post!"
                                     }
                                 },
-                                "required": [
-                                    "content"
-                                ]
+                                "required": ["content"]
                             }
                         }
                     }
@@ -616,9 +582,7 @@
             "post": {
                 "summary": "Upvote/downvote comment",
                 "description": "Toggle upvote on a comment (requires authentication)",
-                "tags": [
-                    "Comments"
-                ],
+                "tags": ["Comments"],
                 "security": [
                     {
                         "cookieAuth": []
@@ -691,9 +655,7 @@
             "get": {
                 "summary": "Get comment replies",
                 "description": "Retrieve replies to a specific comment with pagination",
-                "tags": [
-                    "Comments"
-                ],
+                "tags": ["Comments"],
                 "parameters": [
                     {
                         "name": "id",
@@ -731,10 +693,7 @@
                         "description": "Sort comments by",
                         "schema": {
                             "type": "string",
-                            "enum": [
-                                "points",
-                                "recent"
-                            ],
+                            "enum": ["points", "recent"],
                             "default": "points"
                         }
                     },
@@ -744,10 +703,7 @@
                         "description": "Sort order",
                         "schema": {
                             "type": "string",
-                            "enum": [
-                                "asc",
-                                "desc"
-                            ],
+                            "enum": ["asc", "desc"],
                             "default": "desc"
                         }
                     }
@@ -817,10 +773,7 @@
                         "example": "Operation completed successfully"
                     }
                 },
-                "required": [
-                    "success",
-                    "message"
-                ]
+                "required": ["success", "message"]
             },
             "ErrorResponse": {
                 "type": "object",
@@ -838,10 +791,7 @@
                         "example": false
                     }
                 },
-                "required": [
-                    "success",
-                    "error"
-                ]
+                "required": ["success", "error"]
             },
             "Pagination": {
                 "type": "object",
@@ -855,10 +805,7 @@
                         "example": 10
                     }
                 },
-                "required": [
-                    "page",
-                    "totalPages"
-                ]
+                "required": ["page", "totalPages"]
             },
             "Post": {
                 "type": "object",
@@ -907,10 +854,7 @@
                                 "example": "johndoe"
                             }
                         },
-                        "required": [
-                            "id",
-                            "username"
-                        ]
+                        "required": ["id", "username"]
                     },
                     "isUpvoted": {
                         "type": "boolean",
@@ -992,10 +936,7 @@
                                 "example": "user456"
                             }
                         },
-                        "required": [
-                            "username",
-                            "id"
-                        ]
+                        "required": ["username", "id"]
                     },
                     "childComments": {
                         "type": "array",

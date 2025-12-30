@@ -1,0 +1,73 @@
+{
+    "tabWidth": 4,
+    "printWidth": 100,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": [
+                "*.js",
+                "*.mjs",
+                "*.cjs",
+                "*.ts",
+                "*.d.ts",
+                "*.mts",
+                "*.cts",
+                "*.css",
+                "*.scss",
+                "*.less"
+            ],
+            "options": {
+                "tabWidth": 4,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": ["*.jsx", "*.tsx"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": ["*.yaml", "*.yml"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        }
+    ],
+    "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+    "tailwindStylesheet": "./apps/web/src/globals.css",
+    "tailwindFunctions": ["cn", "cva", "tv"],
+    "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+    "importOrder": [
+        "^(react/(.*)$)|^(react$)",
+        "",
+        "^node:",
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^@sartre/(.*)$",
+        "",
+        "^@/web/(.*)$",
+        "^@/api/(.*)$",
+        "^@/shared/(.*)$",
+        "",
+        "^@/lib/(.*)$",
+        "^@/hooks/(.*)$",
+        "^@/components/ui/(.*)$",
+        "^@/components/(.*)$",
+        "^@/routes/(.*)$",
+        "^@/(.*)$",
+        "",
+        "^[./]"
+    ]
+}

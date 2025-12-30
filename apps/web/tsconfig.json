@@ -1,0 +1,15 @@
+{
+    "extends": "@sartre/ts/react.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noImplicitAny": false,
+        "paths": {
+            "@sartre/shared/*": ["../../packages/shared/*"],
+            "@/ui/*": ["./src/components/ui/*"],
+            "@/common/*": ["./src/components/common/*"],
+            "@/*": ["./src/*"]
+        }
+    }
+}

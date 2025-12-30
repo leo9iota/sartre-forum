@@ -1,3 +1,6 @@
+# Turborepo cache
+.turbo
+
 # Drizzle metadata
 drizzle
 

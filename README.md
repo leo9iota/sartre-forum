@@ -4,11 +4,11 @@
 
 ## Tech Stack
 
-![Tech Stack](https://go-skill-icons.vercel.app/api/icons?i=ts,react,reactquery,bun,hono,drizzle,postgres,vite,shadcn)
+![Tech Stack](https://go-skill-icons.vercel.app/api/icons?i=ts,react,reactquery,bun,hono,drizzle,postgres,vite,shadcn,turborepo)
 
 ## Quick Start
 
->**Prerequisites**: You must have [Bun](https://bun.com/docs/installation) installed.
+> **Prerequisites**: You must have [Bun](https://bun.com/docs/installation) installed.
 
 1. Setup development environment on new machine.
 

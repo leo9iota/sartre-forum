@@ -1,9 +1,9 @@
 {
-    "extends": "@sartre/ts/base.json",
+    "extends": "@sartre/ts/tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/api/*": ["./apps/api/*"],
+            "@/server/*": ["./apps/server/*"],
             "@/web/*": ["./apps/web/*"],
             "@/ui/*": ["./apps/web/src/components/ui/*"],
             "@/common/*": ["./apps/web/src/components/common/*"],

@@ -73,6 +73,55 @@
             height: 0;
         }
     }
+
+    /* Spinner animations */
+    @keyframes spinner-ease-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spinner-linear-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spinner-wave {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-100%);
+        }
+    }
+
+    @keyframes spinner-blink {
+        0%,
+        100% {
+            opacity: 0.2;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes spinner-bar-fade {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.25;
+        }
+    }
 }
 
 /*

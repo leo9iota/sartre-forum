@@ -5,4 +5,5 @@
 
 - [ ] Compartmentalize default components for Tanstack Router
 - [ ] Fix issue with Better Auth and local storage on initial page load
-- [ ] Update to latest Shadcn UI components
+- [x] Update to latest Shadcn UI components
+- [x] Update spinner component and improve animations (inspired by HeroUI)

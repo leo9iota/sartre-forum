@@ -65,27 +65,44 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
           aria-label={label ?? 'Loading'}
           className={cn(spinnerVariants({ size, color }), className)}
         >
-          <div className={cn('relative flex', sizeClasses.wrapper)}>
-            {/* Circle 1: Solid, ease spin */}
-            <i
-              className={cn(
-                'absolute h-full w-full rounded-full',
-                sizeClasses.border,
-                'animate-[spinner-ease-spin_0.8s_ease_infinite]',
-                'border-solid border-transparent',
-                colorClasses.border
-              )}
-            />
-            {/* Circle 2: Dotted, linear spin */}
-            <i
-              className={cn(
-                'absolute h-full w-full rounded-full opacity-75',
-                sizeClasses.border,
-                'animate-[spinner-linear-spin_0.8s_linear_infinite]',
-                'border-dotted border-transparent',
-                colorClasses.border
-              )}
-            />
+          <div className={cn('relative', sizeClasses.wrapper)}>
+            <svg className='h-full w-full' viewBox='0 0 100 100' fill='none'>
+              {/* Trailing dots - same ease animation, but delayed to trail behind */}
+              <g
+                className={colorClasses.text}
+                style={{
+                  transformOrigin: 'center',
+                  animation: 'spinner-ease-spin 0.8s ease infinite',
+                  animationDelay: '-0.1s'
+                }}
+              >
+                {[0, 1, 2, 3, 4].map(i => {
+                  // Start from top (-90deg), trail behind going counter-clockwise
+                  const angle = (-90 - i * 12) * (Math.PI / 180);
+                  const x = 50 + 40 * Math.cos(angle);
+                  const y = 50 + 40 * Math.sin(angle);
+                  const opacity = 0.6 - i * 0.1;
+                  return (
+                    <circle key={i} cx={x} cy={y} r='3' fill='currentColor' opacity={opacity} />
+                  );
+                })}
+              </g>
+              {/* Main arc - ease spin (accelerates/decelerates) */}
+              <circle
+                cx='50'
+                cy='50'
+                r='40'
+                stroke='currentColor'
+                strokeWidth='8'
+                strokeLinecap='round'
+                strokeDasharray='80 251'
+                className={colorClasses.text}
+                style={{
+                  transformOrigin: 'center',
+                  animation: 'spinner-ease-spin 0.8s ease infinite'
+                }}
+              />
+            </svg>
           </div>
           {label && <span className={cn('text-foreground', sizeClasses.label)}>{label}</span>}
         </div>

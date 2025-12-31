@@ -4,7 +4,7 @@ import { createFileRoute, useBlocker, useNavigate, useRouter } from '@tanstack/r
 import { useStore } from '@tanstack/react-store';
 import { toast } from 'sonner';
 
-import { postSubmit } from '@/lib/api';
+import { postSubmit } from '@/lib/api/api';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

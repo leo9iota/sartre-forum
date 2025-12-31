@@ -10,7 +10,7 @@ import { z } from 'zod';
 
 import { signupSchema } from '@sartre/shared/schemas';
 
-import { postSignup, userQueryOptions } from '@/lib/api';
+import { postSignup, userQueryOptions } from '@/lib/api/api';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

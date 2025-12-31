@@ -3,8 +3,7 @@ import { ArrowUpIcon } from 'lucide-react';
 
 import type { Order, SortBy } from '@sartre/shared/types';
 
-import { cn } from '@/lib/utils';
-
+import { cn } from '@/lib/utils/cn';
 import { Button } from '@/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui/select';
 

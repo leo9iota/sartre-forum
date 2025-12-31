@@ -3,7 +3,7 @@
 Guide for setting up the project. You need Docker and Bun.
 
 ---
-## Steps (dev)
+## Dev Setup
 
 1. Install Bun if not already installed
 
@@ -49,7 +49,7 @@ bun dev
 ```
 
 ---
-### Steps (prod)
+## Prod Setup
 
 1. Set up .env variables
 
@@ -70,7 +70,7 @@ The command above will do the following stuff:
 4. The app runs on http://localhost:3000
 
 ---
-### Stopping Services
+### Stop Services
 
 Local dev, press `CTRL` + `C` to stop the dev server and run the command below
 
@@ -91,9 +91,21 @@ docker compose down -v
 ```
 
 ---
-### Common Commands
+### Commands
 
-start dev servers
+first time setup, installs all dependencies, starts postgres and pushes db schema
+
+```sh
+bun setup
+```
+
+start dev servers and docker container (run on initial startup, but can also be run after initial startup)
+
+```sh
+bun start
+```
+
+start dev servers ("turbo run dev"), starts all apps in parallel via turborepo
 
 ```sh
 bun dev
@@ -141,6 +153,7 @@ run db migrations
 bun db:mig
 ```
 
+---
 ### Notes
 
 Ensure postgres db is running with this command

@@ -14,8 +14,8 @@ import { z } from 'zod';
 
 import { orderSchema, sortBySchema } from '@sartre/shared/schemas';
 
-import { getComments, getPost, userQueryOptions } from '@/lib/api';
-import { useUpvoteComment, useUpvotePost } from '@/lib/api-hooks';
+import { getComments, getPost, userQueryOptions } from '@/lib/api/api';
+import { useUpvoteComment, useUpvotePost } from '@/lib/api/api-hooks';
 import { Card, CardContent } from '@/components/ui/card';
 import { Comment } from '@/common/comment';
 import { CommentForm } from '@/common/comment-form';
@@ -50,7 +50,7 @@ const commentsInfiniteQueryOptions = ({ id, sortBy, order }: z.infer<typeof post
     retry: false,
     getNextPageParam: (lastPage, _, lastPageParam) => {
       if (lastPage.pagination.totalPages <= lastPageParam) return undefined;
-      
+
       return lastPageParam + 1;
     }
   });

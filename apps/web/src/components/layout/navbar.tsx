@@ -4,9 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
 import { MenuIcon } from 'lucide-react';
 
-import { userQueryOptions } from '@/lib/api';
-import { useLogout } from '@/lib/api-hooks';
-
+import { userQueryOptions } from '@/lib/api/api';
+import { useLogout } from '@/lib/api/api-hooks';
 import { Button } from '@/ui/button';
 import {
   Sheet,

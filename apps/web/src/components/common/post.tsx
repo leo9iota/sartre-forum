@@ -6,10 +6,10 @@ import { ChevronUpIcon, MoreVerticalIcon, Trash2Icon } from 'lucide-react';
 
 import type { Post as PostType } from '@sartre/shared/types';
 
-import { userQueryOptions } from '@/lib/api';
-import { useDeletePost } from '@/lib/api-hooks';
-import { cn, relativeTime } from '@/lib/utils';
-
+import { userQueryOptions } from '@/lib/api/api';
+import { useDeletePost } from '@/lib/api/api-hooks';
+import { cn } from '@/lib/utils/cn';
+import { relativeTime } from '@/lib/utils/time';
 import {
   AlertDialog,
   AlertDialogAction,

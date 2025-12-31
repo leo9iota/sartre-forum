@@ -11,11 +11,12 @@ import {
 
 import type { Comment as CommentType } from '@sartre/shared/types';
 
-import { getCommentComments, userQueryOptions } from '@/lib/api';
-import { useUpvoteComment } from '@/lib/api-hooks';
-import { cn, relativeTime } from '@/lib/utils';
-
+import { getCommentComments, userQueryOptions } from '@/lib/api/api';
+import { useUpvoteComment } from '@/lib/api/api-hooks';
+import { cn } from '@/lib/utils/cn';
+import { relativeTime } from '@/lib/utils/time';
 import { Separator } from '@/ui/separator';
+
 import { CommentForm } from './comment-form';
 
 type CommentProps = {
@@ -60,7 +61,7 @@ export function Comment({
         }
       ]
     },
-    getNextPageParam: (lastPage, allPages, lastPageParam) => {
+    getNextPageParam: (lastPage, _allPages, lastPageParam) => {
       if (lastPage.pagination.totalPages <= lastPageParam) {
         return undefined;
       }

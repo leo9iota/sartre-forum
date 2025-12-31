@@ -9,8 +9,8 @@ import { z } from 'zod';
 
 import { loginSchema } from '@sartre/shared/schemas';
 
-import { postLogin, userQueryOptions } from '@/lib/api';
-import { signIn } from '@/lib/auth-client';
+import { postLogin, userQueryOptions } from '@/lib/api/api';
+import { signIn } from '@/lib/auth/auth-client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';

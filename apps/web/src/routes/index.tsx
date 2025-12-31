@@ -5,8 +5,8 @@ import { z } from 'zod';
 
 import { orderSchema, sortBySchema } from '@sartre/shared/schemas';
 
-import { getPosts } from '@/lib/api';
-import { useUpvotePost } from '@/lib/api-hooks';
+import { getPosts } from '@/lib/api/api';
+import { useUpvotePost } from '@/lib/api/api-hooks';
 import { Button } from '@/components/ui/button';
 import { Post } from '@/components/common/post';
 import { SortButton } from '@/components/common/sort-button';

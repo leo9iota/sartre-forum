@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Alert, AlertDescription, AlertTitle } from '@/ui/alert';
 import { Button } from '@/ui/button';
 
-export function ErrorInfo({ error }: { error: Error }) {
+export function Error({ error }: { error: Error }) {
   const router = useRouter();
   const isDev = process.env.NODE_ENV !== 'production';
 

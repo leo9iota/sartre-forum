@@ -8,7 +8,7 @@ Sartre is a forum for discussing tech related topics.
 
 ## Quick Start
 
-> You need to have [Bun](https://bun.com/docs/installation) and Docker [Docker](https://www.docker.com/) installed
+> You need to have [Bun](https://bun.com/docs/installation) and [Docker](https://www.docker.com/) installed
 
 1. Clone the repo
 

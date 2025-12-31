@@ -26,19 +26,5 @@
         "check:circular": "bunx madge --circular --extensions ts,tsx apps/web/src apps/server packages/shared"
     },
     "devDependencies": {
-        "@sartre/ts": "workspace:*",
-        "@eslint/compat": "^2.0.0",
-        "@eslint/js": "^9.39.2",
-        "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-        "@types/bun": "^1.3.5",
-        "eslint": "^9.39.2",
-        "eslint-config-prettier": "^10.1.8",
-        "globals": "^16.5.0",
-        "kill-port": "^2.0.1",
-        "prettier": "^3.7.4",
-        "prettier-plugin-tailwindcss": "^0.7.2",
-        "turbo": "^2.3.3",
-        "typescript": "^5.9.3",
-        "typescript-eslint": "^8.51.0"
     }
 }

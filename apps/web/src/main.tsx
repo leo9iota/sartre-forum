@@ -4,37 +4,32 @@ import ReactDOM from 'react-dom/client';
 
 import { routeTree } from '@/routeTree.gen';
 
-import './globals.css';
-
-import { Loader2Icon } from 'lucide-react';
+import '@/globals.css';
 
 import { Error } from '@/common/error';
 import { NotFound } from '@/common/not-found';
+import { Pending } from '@/common/pending';
 
-const queryClient = new QueryClient();
-
-// Set up a Router instance
-const router = createRouter({
-  routeTree,
-  defaultPreload: 'intent',
-  defaultPreloadStaleTime: 0,
-  context: { queryClient },
-  defaultPendingComponent: () => (
-    <div className='mx-auto mt-8 flex flex-col items-center justify-center'>
-      <Loader2Icon className='animate-spin' />
-      <p className='mt-2 text-sm text-muted-foreground'>Loading page</p>
-    </div>
-  ),
-  defaultNotFoundComponent: NotFound,
-  defaultErrorComponent: ({ error }) => <Error error={error} />
-});
-
-// Register things for type safety
+// register stuff for type safety (module augmentation)
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router;
   }
 }
+
+// init tanstack query stuff
+const queryClient = new QueryClient();
+
+// setup a router instance
+const router = createRouter({
+  routeTree,
+  defaultPreload: 'intent',
+  defaultPreloadStaleTime: 0,
+  context: { queryClient },
+  defaultPendingComponent: Pending,
+  defaultNotFoundComponent: NotFound,
+  defaultErrorComponent: ({ error }) => <Error error={error} />
+});
 
 const rootElement = document.getElementById('app')!;
 

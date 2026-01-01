@@ -1,0 +1,25 @@
+{
+    "tabWidth": 4,
+    "printWidth": 100,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "quoteProps": "as-needed",
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+    "importOrderParserPlugins": ["typescript", "decorators-legacy"],
+    "importOrder": [
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^@/db/(.*)$",
+        "^@/lib/(.*)$",
+        "^@/utils/(.*)$",
+        "",
+        "^@/(.*)$",
+        "",
+        "^[./]"
+    ]
+}

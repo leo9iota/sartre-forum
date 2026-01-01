@@ -2,8 +2,10 @@
 
 | Category   | Technology     | Version  |
 | :--------- | :------------- | :------- |
+| Monorepo  | Turborepo | |
 | Library    | SolidJS        |          |
 | Framework  | SolidJS Start  | ^1.132.0 |
+| Server     | Elysia         | ^1.132.0 |
 | Language   | TypeScript     | ^5.7.2   |
 | Runtime    | Bun            | 1.3.0    |
 | Styling    | Panda CSS      | ^1.7.2   |

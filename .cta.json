@@ -1,15 +1,12 @@
 {
-  "projectName": "sartre-forum",
-  "mode": "file-router",
-  "typescript": true,
-  "tailwind": true,
-  "packageManager": "bun",
-  "git": true,
-  "addOnOptions": {},
-  "version": 1,
-  "framework": "react-cra",
-  "chosenAddOns": [
-    "start",
-    "nitro"
-  ]
+    "projectName": "sartre-forum",
+    "mode": "file-router",
+    "typescript": true,
+    "tailwind": true,
+    "packageManager": "bun",
+    "git": true,
+    "addOnOptions": {},
+    "version": 1,
+    "framework": "react-cra",
+    "chosenAddOns": ["start", "nitro"]
 }

@@ -2,7 +2,7 @@
 
 | Category   | Technology     | Version  |
 | :--------- | :------------- | :------- |
-| Monorepo  | Turborepo | |
+| Monorepo   | Turborepo      |          |
 | Library    | SolidJS        |          |
 | Framework  | SolidJS Start  | ^1.132.0 |
 | Server     | Elysia         | ^1.132.0 |

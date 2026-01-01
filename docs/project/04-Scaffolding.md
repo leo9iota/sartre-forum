@@ -19,20 +19,20 @@ Ensure usage of `bun` (v1.1+).
 
     ```json
     {
-      "name": "sartre-monorepo",
-      "private": true,
-      "workspaces": ["apps/*", "packages/*"],
-      "scripts": {
-        "build": "turbo run build",
-        "dev": "turbo run dev",
-        "lint": "turbo run lint",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\""
-      },
-      "devDependencies": {
-        "turbo": "^2.0.0",
-        "typescript": "^5.0.0",
-        "prettier": "^3.0.0"
-      }
+        "name": "sartre-monorepo",
+        "private": true,
+        "workspaces": ["apps/*", "packages/*"],
+        "scripts": {
+            "build": "turbo run build",
+            "dev": "turbo run dev",
+            "lint": "turbo run lint",
+            "format": "prettier --write \"**/*.{ts,tsx,md}\""
+        },
+        "devDependencies": {
+            "turbo": "^2.0.0",
+            "typescript": "^5.0.0",
+            "prettier": "^3.0.0"
+        }
     }
     ```
 
@@ -40,18 +40,18 @@ Ensure usage of `bun` (v1.1+).
 
     ```json
     {
-      "$schema": "https://turbo.build/schema.json",
-      "tasks": {
-        "build": {
-          "dependsOn": ["^build"],
-          "outputs": ["dist/**", ".output/**", ".vinxi/**"]
-        },
-        "lint": {},
-        "dev": {
-          "cache": false,
-          "persistent": true
+        "$schema": "https://turbo.build/schema.json",
+        "tasks": {
+            "build": {
+                "dependsOn": ["^build"],
+                "outputs": ["dist/**", ".output/**", ".vinxi/**"]
+            },
+            "lint": {},
+            "dev": {
+                "cache": false,
+                "persistent": true
+            }
         }
-      }
     }
     ```
 
@@ -79,13 +79,11 @@ Ensure usage of `bun` (v1.1+).
 3.  **Create `src/index.ts`**
 
     ```typescript
-    import { Elysia } from "elysia";
+    import { Elysia } from 'elysia';
 
-    const app = new Elysia().get("/", () => "Hello Elysia").listen(3001);
+    const app = new Elysia().get('/', () => 'Hello Elysia').listen(3001);
 
-    console.log(
-      `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-    );
+    console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
     ```
 
 4.  **Update `apps/server/package.json` scripts**
@@ -125,7 +123,7 @@ Ensure usage of `bun` (v1.1+).
 3.  **Configure `app.config.ts`**
 
     ```typescript
-    import { defineConfig } from "@solidjs/start/config";
+    import { defineConfig } from '@solidjs/start/config';
 
     export default defineConfig({});
     ```

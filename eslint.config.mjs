@@ -1,16 +1,17 @@
-import js from '@eslint/js';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
+
+import js from '@eslint/js';
 import prettier from 'eslint-config-prettier';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import { defineConfig } from 'eslint/config';
 
 export default defineConfig(
-    { ignores: ['dist', '.vinxi', '.output', 'node_modules', '.wrangler'] },
+    { ignores: ['dist', '.vinxi', '.output', 'node_modules', '.wrangler', 'styled-system'] },
     js.configs.recommended,
     ...tseslint.configs.recommended,
     ...tseslint.configs.stylistic,
@@ -43,6 +44,12 @@ export default defineConfig(
                 { name: 'Link', linkAttribute: 'to' },
                 { name: 'NavLink', linkAttribute: 'to' }
             ]
+        }
+    },
+    {
+        files: ['**/*.cjs'],
+        languageOptions: {
+            globals: globals.node
         }
     },
     ...pluginQuery.configs['flat/recommended'],

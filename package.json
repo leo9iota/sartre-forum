@@ -9,11 +9,11 @@
         "format": "prettier --write .",
         "format:check": "prettier --check .",
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
+        "lint:fix": "eslint . --fix",
+        "prepare": "panda codegen"
     },
     "dependencies": {
         "@libsql/client": "^0.15.15",
-        "@tailwindcss/vite": "^4.0.6",
         "@tanstack/react-devtools": "^0.7.0",
         "@tanstack/react-router": "^1.132.0",
         "@tanstack/react-router-devtools": "^1.132.0",
@@ -26,12 +26,14 @@
         "nitro": "latest",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
-        "tailwindcss": "^4.0.6",
         "vite-tsconfig-paths": "^6.0.2"
     },
     "devDependencies": {
+        "@ark-ui/react": "^5.30.0",
         "@eslint/js": "^9.39.2",
         "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+        "@pandacss/dev": "^1.7.2",
+        "@park-ui/panda-preset": "^0.43.1",
         "@tanstack/devtools-vite": "^0.3.11",
         "@tanstack/eslint-plugin-query": "^5.91.2",
         "@tanstack/eslint-plugin-router": "^1.141.0",
@@ -50,7 +52,6 @@
         "globals": "^16.5.0",
         "jsdom": "^27.0.0",
         "prettier": "^3.7.4",
-        "prettier-plugin-tailwindcss": "^0.7.2",
         "typescript": "^5.7.2",
         "typescript-eslint": "^8.51.0",
         "vite": "^7.1.7",

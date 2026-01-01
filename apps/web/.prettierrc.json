@@ -1,0 +1,63 @@
+{
+    "tabWidth": 4,
+    "printWidth": 100,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": [
+                "*.js",
+                "*.mjs",
+                "*.cjs",
+                "*.ts",
+                "*.d.ts",
+                "*.mts",
+                "*.cts",
+                "*.css",
+                "*.scss",
+                "*.less"
+            ],
+            "options": {
+                "tabWidth": 4,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": ["*.jsx", "*.tsx"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        }
+    ],
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+    "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+    "importOrder": [
+        "^solid-js$",
+        "^solid-js/(.*)$",
+        "",
+        "^@solidjs/(.*)$",
+        "",
+        "<THIRD_PARTY_MODULES>",
+        "",
+        "^@/components/ui/(.*)$",
+        "^@/components/(.*)$",
+        "",
+        "^@/routes/(.*)$",
+        "^@/hooks/(.*)$",
+        "^@/lib/(.*)$",
+        "^@/utils/(.*)$",
+        "",
+        "^@/(.*)$",
+        "",
+        "^[./]"
+    ]
+}

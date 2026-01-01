@@ -1,4 +1,4 @@
 // @refresh reload
-import { mount, StartClientTanstack } from "@solidjs/start/client";
+import { mount, StartClient } from '@solidjs/start/client';
 
-mount(() => <StartClientTanstack />, document.getElementById("app")!);
+mount(() => <StartClient />, document.getElementById('app')!);

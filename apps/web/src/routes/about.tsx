@@ -1,13 +1,8 @@
-import { createFileRoute } from "@tanstack/solid-router";
-
-export const Route = createFileRoute("/about")({
-  component: RouteComponent
-});
-
-function RouteComponent() {
+export default function About() {
   return (
     <main>
       <h1>About</h1>
+      <p>This is the about page.</p>
     </main>
   );
 }

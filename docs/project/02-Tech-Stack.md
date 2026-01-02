@@ -17,3 +17,10 @@
 | Testing    | Vitest         | ^3.0.5   |
 | Linting    | ESLint         | ^9.39.2  |
 | Formatting | Prettier       | ^3.7.4   |
+
+
+The BEST Stack
+Bun
+Elysia
+Solid
+Turso

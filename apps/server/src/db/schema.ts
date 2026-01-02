@@ -9,5 +9,21 @@ export const users = sqliteTable('users', {
     updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull()
 });
 
+export const posts = sqliteTable('posts', {
+    id: text('id').primaryKey(),
+    title: text('title').notNull(),
+    slug: text('slug').notNull().unique(),
+    content: text('content').notNull(),
+    authorId: text('author_id')
+        .notNull()
+        .references(() => users.id),
+    published: integer('published', { mode: 'boolean' }).notNull().default(false),
+    createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
+    updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull()
+});
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
+
+export type Post = typeof posts.$inferSelect;
+export type NewPost = typeof posts.$inferInsert;

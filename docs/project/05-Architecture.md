@@ -1,7 +1,7 @@
 # Architecture
 
-
 ---
+
 ## TanStack Query
 
 - Mutations with cache invalidation (create/edit/delete)

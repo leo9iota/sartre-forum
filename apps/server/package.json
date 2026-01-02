@@ -1,7 +1,10 @@
 {
-    "name": "server",
-    "module": "index.ts",
+    "name": "@sartre/server",
+    "module": "src/index.ts",
     "type": "module",
+    "exports": {
+        ".": "./src/index.ts"
+    },
     "private": true,
     "scripts": {
         "dev": "bun run --watch src/index.ts",
@@ -22,6 +25,7 @@
         "typescript": "^5"
     },
     "dependencies": {
+        "@elysiajs/cors": "^1.4.1",
         "@libsql/client": "^0.15.15",
         "better-auth": "^1.4.10",
         "drizzle-orm": "^0.45.1",

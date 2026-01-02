@@ -13,6 +13,7 @@ export default function App() {
           <nav>
             <a href='/'>Home</a>
             <a href='/about'>About</a>
+            <a href='/design'>Design System</a>
           </nav>
           <Suspense fallback={<div>Loading...</div>}>{props.children}</Suspense>
         </>

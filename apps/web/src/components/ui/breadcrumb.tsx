@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { ark } from '@ark-ui/solid/factory';
 import { ChevronRightIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { breadcrumb } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { breadcrumb } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(breadcrumb);
 

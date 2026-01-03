@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Tabs } from '@ark-ui/solid/tabs';
-import { createStyleContext } from 'styled-system/jsx';
-import { tabs } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { tabs } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(tabs);
 

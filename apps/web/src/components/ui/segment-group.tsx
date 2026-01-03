@@ -2,8 +2,8 @@ import { createMemo, For, splitProps } from 'solid-js';
 import type { ComponentProps, JSX } from 'solid-js';
 
 import { SegmentGroup } from '@ark-ui/solid/segment-group';
-import { createStyleContext } from 'styled-system/jsx';
-import { segmentGroup } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { segmentGroup } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(segmentGroup);
 

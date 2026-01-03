@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Progress } from '@ark-ui/solid/progress';
-import { createStyleContext } from 'styled-system/jsx';
-import { progress } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { progress } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(progress);
 

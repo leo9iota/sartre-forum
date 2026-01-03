@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { NumberInput } from '@ark-ui/solid/number-input';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { numberInput } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { numberInput } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(numberInput);
 

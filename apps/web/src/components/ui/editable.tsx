@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Editable } from '@ark-ui/solid/editable';
-import { createStyleContext } from 'styled-system/jsx';
-import { editable } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { editable } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(editable);
 

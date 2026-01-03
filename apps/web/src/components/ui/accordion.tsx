@@ -3,8 +3,8 @@ import type { ComponentProps } from 'solid-js';
 import { Accordion } from '@ark-ui/solid/accordion';
 import { ark } from '@ark-ui/solid/factory';
 import { ChevronDownIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { accordion } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { accordion } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(accordion);
 

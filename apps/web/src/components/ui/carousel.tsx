@@ -2,8 +2,8 @@ import { For } from 'solid-js';
 import type { ComponentProps } from 'solid-js';
 
 import { Carousel, useCarouselContext } from '@ark-ui/solid/carousel';
-import { createStyleContext } from 'styled-system/jsx';
-import { carousel } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { carousel } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(carousel);
 

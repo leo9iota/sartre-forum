@@ -3,8 +3,8 @@ import type { ComponentProps, JSX } from 'solid-js';
 
 import { Pagination, usePaginationContext } from '@ark-ui/solid/pagination';
 import { EllipsisIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { pagination } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { pagination } from '@styled-system/recipes';
 
 import { IconButton } from './icon-button';
 

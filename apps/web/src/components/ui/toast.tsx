@@ -3,8 +3,8 @@ import { Portal } from 'solid-js/web';
 
 import { Toaster as ArkToaster, createToaster, Toast, useToastContext } from '@ark-ui/solid/toast';
 import { CheckCircleIcon, CircleAlertIcon, CircleXIcon } from 'lucide-solid';
-import { createStyleContext, Stack, styled } from 'styled-system/jsx';
-import { toast } from 'styled-system/recipes';
+import { createStyleContext, Stack, styled } from '@styled-system/jsx';
+import { toast } from '@styled-system/recipes';
 
 import { CloseButton } from './close-button';
 import { Icon } from './icon';

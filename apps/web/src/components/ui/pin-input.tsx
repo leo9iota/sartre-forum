@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { PinInput } from '@ark-ui/solid/pin-input';
-import { createStyleContext } from 'styled-system/jsx';
-import { pinInput } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { pinInput } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(pinInput);
 

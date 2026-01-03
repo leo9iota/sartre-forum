@@ -3,8 +3,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { TagsInput, useTagsInputContext } from '@ark-ui/solid/tags-input';
 import { XIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { tagsInput } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { tagsInput } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(tagsInput);
 

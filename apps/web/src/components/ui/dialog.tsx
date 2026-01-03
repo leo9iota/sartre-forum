@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { Dialog, useDialogContext } from '@ark-ui/solid/dialog';
 import { ark } from '@ark-ui/solid/factory';
-import { createStyleContext, styled } from 'styled-system/jsx';
-import { dialog } from 'styled-system/recipes';
+import { createStyleContext, styled } from '@styled-system/jsx';
+import { dialog } from '@styled-system/recipes';
 
 const { withRootProvider, withContext } = createStyleContext(dialog);
 

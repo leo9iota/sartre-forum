@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { ark } from '@ark-ui/solid/factory';
 import { Popover } from '@ark-ui/solid/popover';
-import { createStyleContext } from 'styled-system/jsx';
-import { popover } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { popover } from '@styled-system/recipes';
 
 const { withRootProvider, withContext } = createStyleContext(popover);
 

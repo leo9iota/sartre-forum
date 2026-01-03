@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { ScrollArea } from '@ark-ui/solid/scroll-area';
-import { createStyleContext } from 'styled-system/jsx';
-import { scrollArea } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { scrollArea } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(scrollArea);
 

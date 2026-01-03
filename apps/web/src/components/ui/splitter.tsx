@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Splitter } from '@ark-ui/solid/splitter';
-import { createStyleContext } from 'styled-system/jsx';
-import { splitter } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { splitter } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(splitter);
 

@@ -1,9 +1,9 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Checkbox, useCheckboxContext } from '@ark-ui/solid/checkbox';
-import { createStyleContext, styled } from 'styled-system/jsx';
-import { checkbox } from 'styled-system/recipes';
-import type { HTMLStyledProps } from 'styled-system/types';
+import { createStyleContext, styled } from '@styled-system/jsx';
+import { checkbox } from '@styled-system/recipes';
+import type { HTMLStyledProps } from '@styled-system/types';
 
 const { withProvider, withContext } = createStyleContext(checkbox);
 

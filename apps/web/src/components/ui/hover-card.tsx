@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { HoverCard } from '@ark-ui/solid/hover-card';
-import { createStyleContext } from 'styled-system/jsx';
-import { hoverCard } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { hoverCard } from '@styled-system/recipes';
 
 const { withRootProvider, withContext } = createStyleContext(hoverCard);
 

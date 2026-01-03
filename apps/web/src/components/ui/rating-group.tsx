@@ -7,9 +7,9 @@ import {
   useRatingGroupItemContext
 } from '@ark-ui/solid/rating-group';
 import { StarIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { ratingGroup } from 'styled-system/recipes';
-import type { HTMLStyledProps } from 'styled-system/jsx';
+import { createStyleContext } from '@styled-system/jsx';
+import { ratingGroup } from '@styled-system/recipes';
+import type { HTMLStyledProps } from '@styled-system/jsx';
 
 const { withProvider, withContext } = createStyleContext(ratingGroup);
 

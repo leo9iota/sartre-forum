@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { Clipboard } from '@ark-ui/solid/clipboard';
 import { CheckIcon, CopyIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { clipboard } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { clipboard } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(clipboard);
 

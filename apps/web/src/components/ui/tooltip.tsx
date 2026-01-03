@@ -3,8 +3,8 @@ import { Portal } from 'solid-js/web';
 import type { ComponentProps, JSX } from 'solid-js';
 
 import { Tooltip as ArkTooltip } from '@ark-ui/solid/tooltip';
-import { createStyleContext } from 'styled-system/jsx';
-import { tooltip } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { tooltip } from '@styled-system/recipes';
 
 const { withRootProvider, withContext } = createStyleContext(tooltip);
 

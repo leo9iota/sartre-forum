@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { DatePicker } from '@ark-ui/solid/date-picker';
-import { createStyleContext } from 'styled-system/jsx';
-import { datePicker } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { datePicker } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(datePicker);
 

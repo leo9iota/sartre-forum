@@ -2,9 +2,9 @@ import { For, splitProps } from 'solid-js';
 import type { ComponentProps } from 'solid-js';
 
 import { ark } from '@ark-ui/solid/factory';
-import { Stack, styled } from 'styled-system/jsx';
-import { skeleton } from 'styled-system/recipes';
-import type { StackProps } from 'styled-system/jsx';
+import { Stack, styled } from '@styled-system/jsx';
+import { skeleton } from '@styled-system/recipes';
+import type { StackProps } from '@styled-system/jsx';
 
 export type SkeletonProps = ComponentProps<typeof Skeleton>;
 export const Skeleton = styled(ark.div, skeleton);

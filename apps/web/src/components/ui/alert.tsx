@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { ark } from '@ark-ui/solid/factory';
 import { InfoIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { alert } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { alert } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(alert);
 

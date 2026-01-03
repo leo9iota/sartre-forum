@@ -11,7 +11,10 @@ import { conditions } from '@/theme/conditions';
 import { globalCss } from '@/theme/global-css';
 import { keyframes } from '@/theme/keyframes';
 import { layerStyles } from '@/theme/layer-styles';
-import { recipes, slotRecipes } from '@/theme/recipes';
+// Custom recipes that don't conflict with Park UI preset
+import { absoluteCenter } from '@/theme/recipes/absolute-center';
+import { group } from '@/theme/recipes/group';
+import { spinner } from '@/theme/recipes/spinner';
 import { textStyles } from '@/theme/text-styles';
 import { colors } from '@/theme/tokens/colors';
 import { durations } from '@/theme/tokens/durations';
@@ -50,8 +53,11 @@ export default defineConfig({
     theme: {
         extend: {
             animationStyles: animationStyles,
-            recipes: recipes,
-            slotRecipes: slotRecipes,
+            recipes: {
+                group,
+                absoluteCenter,
+                spinner
+            },
             keyframes: keyframes,
             layerStyles: layerStyles,
             textStyles: textStyles,

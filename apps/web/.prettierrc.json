@@ -31,33 +31,59 @@
             }
         },
         {
-            "files": ["*.jsx", "*.tsx"],
+            "files": [
+                "*.jsx",
+                "*.tsx"
+            ],
             "options": {
                 "tabWidth": 2,
                 "printWidth": 100
             }
         }
     ],
-    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
-    "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+    "plugins": [
+        "@ianvs/prettier-plugin-sort-imports"
+    ],
+    "importOrderParserPlugins": [
+        "typescript",
+        "jsx",
+        "decorators-legacy"
+    ],
     "importOrder": [
         "^solid-js$",
         "^solid-js/(.*)$",
+        "<TYPES>^solid-js$",
+        "<TYPES>^solid-js/(.*)$",
         "",
         "^@solidjs/(.*)$",
+        "<TYPES>^@solidjs/(.*)$",
+        "",
+        "^@styled-system/(.*)$",
+        "<TYPES>^@styled-system/(.*)$",
         "",
         "<THIRD_PARTY_MODULES>",
+        "<TYPES>",
         "",
+        "^@ui/(.*)$",
+        "<TYPES>^@ui/(.*)$",
         "^@/components/ui/(.*)$",
+        "<TYPES>^@/components/ui/(.*)$",
         "^@/components/(.*)$",
+        "<TYPES>^@/components/(.*)$",
         "",
         "^@/routes/(.*)$",
+        "<TYPES>^@/routes/(.*)$",
         "^@/hooks/(.*)$",
+        "<TYPES>^@/hooks/(.*)$",
         "^@/lib/(.*)$",
+        "<TYPES>^@/lib/(.*)$",
         "^@/utils/(.*)$",
+        "<TYPES>^@/utils/(.*)$",
         "",
         "^@/(.*)$",
+        "<TYPES>^@/(.*)$",
         "",
-        "^[./]"
+        "^[./]",
+        "<TYPES>^[./]"
     ]
 }

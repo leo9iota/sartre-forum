@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Collapsible } from '@ark-ui/solid/collapsible';
-import { createStyleContext } from 'styled-system/jsx';
-import { collapsible } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { collapsible } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(collapsible);
 

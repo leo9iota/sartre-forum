@@ -3,9 +3,9 @@ import type { ComponentProps } from 'solid-js';
 
 import { Menu, useMenuItemContext } from '@ark-ui/solid/menu';
 import { CheckIcon, ChevronDownIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { menu } from 'styled-system/recipes';
-import type { HTMLStyledProps } from 'styled-system/jsx';
+import { createStyleContext } from '@styled-system/jsx';
+import { menu } from '@styled-system/recipes';
+import type { HTMLStyledProps } from '@styled-system/jsx';
 
 const { withRootProvider, withContext } = createStyleContext(menu);
 

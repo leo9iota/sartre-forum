@@ -3,9 +3,9 @@ import type { ComponentProps } from 'solid-js';
 
 import { FileUpload, useFileUploadContext } from '@ark-ui/solid/file-upload';
 import { FileIcon, XIcon } from 'lucide-solid';
-import { createStyleContext, Stack } from 'styled-system/jsx';
-import { fileUpload } from 'styled-system/recipes';
-import type { HTMLStyledProps } from 'styled-system/jsx';
+import { createStyleContext, Stack } from '@styled-system/jsx';
+import { fileUpload } from '@styled-system/recipes';
+import type { HTMLStyledProps } from '@styled-system/jsx';
 
 import { Span } from '@/components/ui';
 

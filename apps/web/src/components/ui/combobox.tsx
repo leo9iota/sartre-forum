@@ -3,10 +3,10 @@ import { Show } from 'solid-js';
 import { Combobox, useComboboxItemContext } from '@ark-ui/solid/combobox';
 import { ark } from '@ark-ui/solid/factory';
 import { CheckIcon, ChevronsUpDownIcon, XIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { combobox } from 'styled-system/recipes';
-import type { HTMLStyledProps } from 'styled-system/jsx';
-import type { ComboboxVariantProps } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { combobox } from '@styled-system/recipes';
+import type { HTMLStyledProps } from '@styled-system/jsx';
+import type { ComboboxVariantProps } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(combobox);
 

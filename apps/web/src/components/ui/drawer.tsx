@@ -2,8 +2,8 @@ import type { ComponentProps } from 'solid-js';
 
 import { Dialog } from '@ark-ui/solid/dialog';
 import { ark } from '@ark-ui/solid/factory';
-import { createStyleContext } from 'styled-system/jsx';
-import { drawer } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { drawer } from '@styled-system/recipes';
 
 const { withRootProvider, withContext } = createStyleContext(drawer);
 

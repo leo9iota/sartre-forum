@@ -1,7 +1,7 @@
 import { splitProps } from 'solid-js';
 
-import { styled } from 'styled-system/jsx';
-import type { HTMLStyledProps, SystemStyleObject } from 'styled-system/types';
+import { styled } from '@styled-system/jsx';
+import type { HTMLStyledProps, SystemStyleObject } from '@styled-system/types';
 
 interface ImageOptions {
   /**

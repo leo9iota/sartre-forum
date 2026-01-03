@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { Field } from '@ark-ui/solid/field';
-import { createStyleContext } from 'styled-system/jsx';
-import { field } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { field } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(field);
 

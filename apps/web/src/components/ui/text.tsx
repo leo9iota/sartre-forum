@@ -1,9 +1,9 @@
 import type { ComponentProps } from 'solid-js';
 
-import { styled } from 'styled-system/jsx';
-import { text } from 'styled-system/recipes';
-import type { TextVariantProps } from 'styled-system/recipes';
-import type { StyledComponent } from 'styled-system/types';
+import { styled } from '@styled-system/jsx';
+import { text } from '@styled-system/recipes';
+import type { TextVariantProps } from '@styled-system/recipes';
+import type { StyledComponent } from '@styled-system/types';
 
 type Props = TextVariantProps & { as?: any };
 

@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { RadioGroup } from '@ark-ui/solid/radio-group';
-import { createStyleContext } from 'styled-system/jsx';
-import { radioCardGroup } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { radioCardGroup } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(radioCardGroup);
 

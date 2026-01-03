@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { ark } from '@ark-ui/solid/factory';
-import { createStyleContext } from 'styled-system/jsx';
-import { table } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { table } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(table);
 

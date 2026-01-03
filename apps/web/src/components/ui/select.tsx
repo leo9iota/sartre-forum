@@ -3,11 +3,11 @@ import { Show } from 'solid-js';
 import { ark } from '@ark-ui/solid/factory';
 import { Select, useSelectItemContext } from '@ark-ui/solid/select';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { select } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { select } from '@styled-system/recipes';
 import type { Assign, CollectionItem, SelectRootProps } from '@ark-ui/solid';
-import type { SelectVariantProps } from 'styled-system/recipes';
-import type { HTMLStyledProps } from 'styled-system/types';
+import type { SelectVariantProps } from '@styled-system/recipes';
+import type { HTMLStyledProps } from '@styled-system/types';
 
 const { withProvider, withContext } = createStyleContext(select);
 

@@ -3,8 +3,8 @@ import type { ComponentProps, JSX } from 'solid-js';
 
 import { Avatar } from '@ark-ui/solid/avatar';
 import { UserIcon } from 'lucide-solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { avatar } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { avatar } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(avatar);
 

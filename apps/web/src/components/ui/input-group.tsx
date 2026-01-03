@@ -2,8 +2,8 @@ import { Show, splitProps } from 'solid-js';
 import type { ComponentProps, JSX } from 'solid-js';
 
 import { ark } from '@ark-ui/solid';
-import { createStyleContext } from 'styled-system/jsx';
-import { inputGroup } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { inputGroup } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(inputGroup);
 

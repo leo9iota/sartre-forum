@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'solid-js';
 
 import { ToggleGroup } from '@ark-ui/solid/toggle-group';
-import { createStyleContext } from 'styled-system/jsx';
-import { toggleGroup } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { toggleGroup } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(toggleGroup);
 

@@ -3,8 +3,8 @@ import type { ComponentProps, JSX } from 'solid-js';
 
 import { ark } from '@ark-ui/solid/factory';
 import { Slider, useSliderContext } from '@ark-ui/solid/slider';
-import { createStyleContext } from 'styled-system/jsx';
-import { slider } from 'styled-system/recipes';
+import { createStyleContext } from '@styled-system/jsx';
+import { slider } from '@styled-system/recipes';
 
 const { withProvider, withContext } = createStyleContext(slider);
 

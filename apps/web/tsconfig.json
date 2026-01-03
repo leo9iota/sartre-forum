@@ -17,7 +17,6 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
-            "@ui/*": ["./src/components/ui/*"],
             "@styled-system/*": ["./styled-system/*"]
         }
     }

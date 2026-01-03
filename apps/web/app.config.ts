@@ -10,6 +10,7 @@ export default defineConfig({
         resolve: {
             alias: {
                 '@': resolve(import.meta.dirname, './src'),
+                '@ui': resolve(import.meta.dirname, './src/components/ui'),
                 '@styled-system': resolve(import.meta.dirname, './styled-system')
             }
         }

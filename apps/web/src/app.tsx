@@ -3,52 +3,23 @@ import { Suspense } from 'solid-js';
 import { Router } from '@solidjs/router';
 import { FileRoutes } from '@solidjs/start/router';
 
-import { css } from '@styled-system/css';
+import './styles/global.css'; // Import global styles
 
-import './app.css';
+import * as styles from './app.css';
 
 export default function App() {
   return (
     <Router
       root={props => (
         <>
-          <nav
-            class={css({
-              display: 'flex',
-              gap: '4',
-              p: '4',
-              bg: 'gray.1',
-              borderBottomWidth: '1px'
-            })}
-          >
-            <a
-              href='/'
-              class={css({
-                color: 'fg.default',
-                fontWeight: 'medium',
-                _hover: { color: 'accent.text' }
-              })}
-            >
+          <nav class={styles.nav}>
+            <a href='/' class={styles.navLink}>
               Home
             </a>
-            <a
-              href='/about'
-              class={css({
-                color: 'fg.default',
-                fontWeight: 'medium',
-                _hover: { color: 'accent.text' }
-              })}
-            >
+            <a href='/about' class={styles.navLink}>
               About
             </a>
-            <a
-              href='/design'
-              class={css({
-                color: 'fg.default',
-                fontWeight: 'medium',
-                _hover: { color: 'accent.text' }
-              })}
-            >
+            <a href='/design' class={styles.navLink}>
               Design System
             </a>
           </nav>

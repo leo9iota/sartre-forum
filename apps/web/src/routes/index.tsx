@@ -3,9 +3,12 @@ import { For, Show, Suspense } from 'solid-js';
 import { createAsync } from '@solidjs/router';
 import type { RouteDefinition } from '@solidjs/router';
 
-import { css } from '@styled-system/css';
+import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
 
 import { getPosts } from '@/lib/api/posts';
+
+import * as styles from './index.css';
 
 // Preload data during route navigation
 export const route = {
@@ -16,32 +19,36 @@ export default function Home() {
   const posts = createAsync(() => getPosts());
 
   return (
-    <main class={css({ maxW: '6xl', mx: 'auto', p: '4' })}>
-      <h1 class={css({ textStyle: '4xl', fontWeight: 'bold', mb: '8' })}>Sartre Blog</h1>
-      <div class={css({ spaceY: '4' })}>
-        <h2 class={css({ textStyle: '2xl', fontWeight: 'bold' })}>Latest Posts</h2>
+    <main class={styles.main}>
+      <h1 class={styles.title}>Sartre Blog</h1>
+
+      <div class={styles.section}>
+        <h2 class={styles.sectionTitle}>Interactive Components</h2>
+
+        <div class={styles.flexRow}>
+          <Button onClick={() => alert('Button Clicked!')}>Primary Button</Button>
+          <Button variant='outline'>Secondary</Button>
+          <Button loading>Loading</Button>
+        </div>
+
+        <div class={styles.flexRow}>
+          <span class={styles.label}>Toggle Feature</span>
+          <Switch defaultChecked />
+        </div>
+      </div>
+      <div class={styles.postGrid}>
+        <h2 class={styles.sectionTitle}>Latest Posts</h2>
         <Suspense fallback={<div>Loading posts...</div>}>
           <Show when={posts()} fallback={<div>No posts found.</div>}>
             {postList => (
-              <div class={css({ display: 'grid', gap: '4' })}>
+              <div class={styles.postGrid}>
                 <For each={postList()}>
                   {post => (
-                    <article
-                      class={css({
-                        p: '4',
-                        borderWidth: '1px',
-                        rounded: 'lg',
-                        shadow: 'sm',
-                        _hover: { shadow: 'md' },
-                        transition: 'shadows'
-                      })}
-                    >
-                      <a href={`/posts/${post.slug}`} class={css({ display: 'block' })}>
-                        <h3 class={css({ textStyle: 'xl', fontWeight: 'semibold', mb: '2' })}>
-                          {post.title}
-                        </h3>
-                        <p class={css({ color: 'fg.muted', lineClamp: 3 })}>{post.content}</p>
-                        <div class={css({ mt: '2', textStyle: 'sm', color: 'fg.subtle' })}>
+                    <article class={styles.postCard}>
+                      <a href={`/posts/${post.slug}`} class={styles.postLink}>
+                        <h3 class={styles.postTitle}>{post.title}</h3>
+                        <p class={styles.postSnippet}>{post.content}</p>
+                        <div class={styles.postDate}>
                           {new Date(post.createdAt).toLocaleDateString()}
                         </div>
                       </a>

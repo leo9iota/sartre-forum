@@ -2,10 +2,11 @@
 
 ---
 
-## 03.01.2025
+## 07.01.2025
 
-- [ ] Implement design system for pre-built and custom components
-
+- [ ] Implement design system with Vanilla Extract
+- [x] Fix path mapping issue with `.css.ts` files (there is no easy fix)
+- [ ] Fix color issue on line 378 in reset.css.ts
 
 ---
 

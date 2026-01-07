@@ -1,237 +1,125 @@
 # Design System
 
-This project uses **Park UI**, a component library built on top of **Panda CSS** (styling) and **Ark UI** (headless components).
+## Philosophy: Refined Utilitarian
+
+**Vibe**: Markdown/Paper feel — like reading a well-formatted technical specification or RFC document.
+
+This design takes the structure of Hacker News (numbered lists, clear hierarchy) but upgrades it with refined typography and generous spacing. It says "I care about the specs."
+
+### Core Principles
+
+1. **Readability First** — Optimized for long-form technical content
+2. **Clear Hierarchy** — Obvious structure through typography, not decoration
+3. **Minimal Chrome** — No unnecessary visual flourishes
+4. **Warm & Inviting** — Cream paper tones, not sterile whites
 
 ---
 
-## Stack Overview
+## Color Palette
 
-| Layer          | Technology | Purpose                                                    |
-| -------------- | ---------- | ---------------------------------------------------------- |
-| **Styling**    | Panda CSS  | CSS-in-JS with design tokens, recipes, and utility classes |
-| **Components** | Ark UI     | Headless, accessible component primitives (no styling)     |
-| **Preset**     | Park UI    | Pre-styled recipes combining Panda CSS + Ark UI            |
+### Light Theme — "Paper"
 
----
+| Token             | Value     | Usage                       |
+| ----------------- | --------- | --------------------------- |
+| `background`      | `#F5F3EF` | Warm cream paper            |
+| `backgroundAlt`   | `#EBE8E2` | Cards, elevated surfaces    |
+| `foreground`      | `#1A1A1A` | Primary text (near-black)   |
+| `foregroundMuted` | `#6B6B6B` | Metadata, secondary text    |
+| `primary`         | `#2C2C2C` | Links, interactive elements |
+| `accent`          | `#8B4513` | Warm brown highlights       |
+| `border`          | `#D4D0C8` | Subtle dividers             |
 
-## How It Works
+### Dark Theme — "Charcoal"
 
-```
-Park UI Preset (provides default styles)
-        ↓
-Your theme customizations (override defaults)
-        ↓
-Panda CSS generates → styled-system/
-        ↓
-Components use generated classes
-```
-
----
-
-## Project Structure
-
-```
-apps/web/
-├── panda.config.ts          # Panda CSS configuration
-├── styled-system/           # Generated CSS utilities (don't edit)
-│   ├── css/                 # css() utility
-│   ├── recipes/             # Component recipes
-│   └── tokens/              # Design tokens
-└── src/
-    ├── app.css              # CSS layer imports
-    ├── components/ui/       # Your UI components
-    └── theme/
-        ├── recipes/         # Custom/override recipes
-        │   ├── index.ts     # Recipe registry
-        │   ├── button.ts    # Custom button recipe
-        │   └── ...
-        ├── tokens/          # Custom tokens (colors, spacing, etc.)
-        ├── keyframes.ts     # Custom animations
-        └── global-css.ts    # Global styles
-```
+| Token             | Value     | Usage                       |
+| ----------------- | --------- | --------------------------- |
+| `background`      | `#1C1C1E` | Deep charcoal base          |
+| `backgroundAlt`   | `#2C2C2E` | Cards, elevated surfaces    |
+| `foreground`      | `#E5E5E7` | Primary text (off-white)    |
+| `foregroundMuted` | `#8E8E93` | Metadata, secondary text    |
+| `primary`         | `#E5E5E7` | Links, interactive elements |
+| `accent`          | `#D4A574` | Warm gold highlights        |
+| `border`          | `#3A3A3C` | Subtle dividers             |
 
 ---
 
-## Using Components
+## Typography
 
-### Method 1: Park UI Components (Pre-built)
+### Font Stack
 
-```tsx
-import { Button } from '@/components/ui/button';
+| Role         | Font       | Fallback              |
+| ------------ | ---------- | --------------------- |
+| **Headings** | Space Mono | monospace             |
+| **Body**     | Inter      | system-ui, sans-serif |
+| **Code**     | Space Mono | monospace             |
 
-<Button variant="solid" size="md">
-    Click me
-</Button>;
-```
+### Why Monospaced Headings?
 
-### Method 2: Panda CSS Utilities
+The monospaced headers (`Space Mono`) give the design its distinctive "spec document" character. They evoke:
 
-```tsx
-import { css } from '@styled-system/css';
+- Terminal output
+- Technical documentation
+- RFC/spec documents
+- Code comments
 
-<div class={css({ display: 'flex', gap: '4', p: '4' })}>Content</div>;
-```
+### Type Scale
 
-### Method 3: Ark UI + Custom Styling
-
-```tsx
-import { Accordion } from '@ark-ui/solid';
-import { css } from '@styled-system/css';
-
-<Accordion.Root class={css({ bg: 'gray.1' })}>
-    <Accordion.Item value="item-1">
-        <Accordion.ItemTrigger>Toggle</Accordion.ItemTrigger>
-        <Accordion.ItemContent>Content</Accordion.ItemContent>
-    </Accordion.Item>
-</Accordion.Root>;
-```
+| Token  | Size     | Usage                  |
+| ------ | -------- | ---------------------- |
+| `xs`   | 0.75rem  | Fine print, timestamps |
+| `sm`   | 0.875rem | Captions, metadata     |
+| `base` | 1rem     | Body text              |
+| `lg`   | 1.125rem | Large body             |
+| `xl`   | 1.25rem  | Lead paragraphs        |
+| `2xl`  | 1.5rem   | h4, section headers    |
+| `3xl`  | 1.875rem | h3                     |
+| `4xl`  | 2.25rem  | h1, h2                 |
 
 ---
 
-## Customization Guide
+## Spacing
 
-### 1. Understanding Recipes
+Uses a consistent 4px base unit:
 
-**Recipes** = Reusable component styles with variants.
-
-| Type          | Use For                   | Example                   |
-| ------------- | ------------------------- | ------------------------- |
-| `recipes`     | Single-element components | Button, Badge, Input      |
-| `slotRecipes` | Multi-part components     | Accordion, Dialog, Select |
-
-### 2. The Recipe Registry (`src/theme/recipes/index.ts`)
-
-This file tells Panda CSS which custom recipes to include:
-
-```typescript
-import { button } from './button';
-import { spinner } from './spinner';
-import { switchRecipe } from './switch';
-
-// Single-element components
-export const recipes = {
-    button,
-    spinner
-};
-
-// Multi-part components
-export const slotRecipes = {
-    switchRecipe
-};
-```
-
-> **Important**: Only add recipes here if you're **customizing** or **creating new** components.
-> Park UI preset already provides default recipes for most components.
-
-### 3. Overriding a Park UI Component
-
-To customize an existing Park UI component:
-
-1. Find or create the recipe file (e.g., `src/theme/recipes/button.ts`)
-2. Modify the styles
-3. Export it in `index.ts`
-
-```typescript
-// src/theme/recipes/button.ts
-import { defineRecipe } from '@pandacss/dev';
-
-export const button = defineRecipe({
-    className: 'button',
-    base: {
-        cursor: 'pointer',
-        borderRadius: 'lg',
-        fontWeight: 'semibold'
-    },
-    variants: {
-        variant: {
-            solid: { bg: 'accent.solid', color: 'white' },
-            outline: { borderWidth: '1px', borderColor: 'border' }
-        },
-        size: {
-            sm: { h: '8', px: '3', textStyle: 'sm' },
-            md: { h: '10', px: '4', textStyle: 'md' },
-            lg: { h: '12', px: '6', textStyle: 'lg' }
-        }
-    },
-    defaultVariants: {
-        variant: 'solid',
-        size: 'md'
-    }
-});
-```
-
-### 4. Creating a New Component
-
-1. Create the recipe file
-2. Add to `index.ts`
-3. Create the component in `src/components/ui/`
+| Token | Value   | Pixels |
+| ----- | ------- | ------ |
+| `1`   | 0.25rem | 4px    |
+| `2`   | 0.5rem  | 8px    |
+| `3`   | 0.75rem | 12px   |
+| `4`   | 1rem    | 16px   |
+| `6`   | 1.5rem  | 24px   |
+| `8`   | 2rem    | 32px   |
+| `10`  | 2.5rem  | 40px   |
+| `12`  | 3rem    | 48px   |
 
 ---
 
-## Design Tokens
+## Components
 
-Tokens are defined in `panda.config.ts` under `theme.extend.tokens`:
+### UI Components (Kobalte + Vanilla Extract)
 
-```typescript
-tokens: {
-    colors: {
-        brand: { value: '#6366f1' }
-    },
-    spacing: {
-        xs: { value: '0.5rem' }
-    }
-}
+- **Button** — Solid, outline, ghost, link variants
+- **Switch** — Toggle for boolean settings
+- **ThemeSwitch** — Light/dark mode toggle with sun/moon icons
+- **Text** — Typography component with semantic variants
+
+### Design Tokens Location
+
 ```
-
-Use in components:
-
-```tsx
-<div class={css({ bg: 'brand', p: 'xs' })} />
+apps/web/src/styles/
+├── vars.css.ts      # Static tokens (spacing, fonts, radii)
+├── theme.css.ts     # Theme definitions (light/dark colors)
+├── global.css.ts    # Global styles
+└── reset.css.ts     # CSS reset
 ```
 
 ---
 
-## Semantic Tokens
+## Inspiration
 
-Semantic tokens adapt to light/dark mode:
+The "Refined Utilitarian" aesthetic draws from:
 
-```typescript
-semanticTokens: {
-    colors: {
-        fg: {
-            default: {
-                value: { _light: '{colors.gray.12}', _dark: '{colors.gray.12}' }
-            },
-            muted: {
-                value: { _light: '{colors.gray.11}', _dark: '{colors.gray.11}' }
-            }
-        }
-    }
-}
-```
-
----
-
-## Common Commands
-
-| Command      | Description                                      |
-| ------------ | ------------------------------------------------ |
-| `bun ui:gen` | Regenerate `styled-system/` after config changes |
-| `bun dev`    | Start dev server (auto-regenerates on changes)   |
-
----
-
-## Workflow Summary
-
-1. **Using existing components** → Just import from `@/components/ui/`
-2. **Customizing a component** → Edit recipe in `src/theme/recipes/`, export in `index.ts`
-3. **Adding new tokens** → Edit `panda.config.ts`, run `bun ui:gen`
-4. **Inline styling** → Use `css()` utility from `@styled-system/css`
-
----
-
-## Resources
-
-- [Park UI Documentation](https://park-ui.com)
-- [Panda CSS Documentation](https://panda-css.com)
-- [Ark UI Documentation](https://ark-ui.com)
+- **Hacker News** — Information density, numbered lists
+- **GitHub README** — Clean markdown rendering
+- **Bear Blog** — Minimalism, readability focus
+- **LaTeX/Academic Papers** — Serious, technical credibility

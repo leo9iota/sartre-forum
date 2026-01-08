@@ -12,8 +12,8 @@
         "ui:gen": "panda codegen"
     },
     "dependencies": {
+        "@ark-ui/solid": "^5.30.0",
         "@elysiajs/eden": "^1.4.6",
-        "@kobalte/core": "^0.13.11",
         "@solidjs/meta": "^0.29.4",
         "@solidjs/router": "^0.15.4",
         "@solidjs/start": "^1.2.1",

@@ -1,5 +1,7 @@
-import { JSX, Suspense } from 'solid-js';
+import { Suspense } from 'solid-js';
+import type { JSX } from 'solid-js';
 
+import { MetaProvider } from '@solidjs/meta';
 import { Router } from '@solidjs/router';
 import { FileRoutes } from '@solidjs/start/router';
 
@@ -40,10 +42,12 @@ function AppContent(props: { children: JSX.Element }) {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <Router root={props => <AppContent>{props.children}</AppContent>}>
-        <FileRoutes />
-      </Router>
-    </ThemeProvider>
+    <MetaProvider>
+      <ThemeProvider>
+        <Router root={props => <AppContent>{props.children}</AppContent>}>
+          <FileRoutes />
+        </Router>
+      </ThemeProvider>
+    </MetaProvider>
   );
 }

@@ -2,11 +2,17 @@
 
 ---
 
-## 07.01.2025
+## 08.01.2025
 
 - [ ] Implement design system with Vanilla Extract
+- [ ] Setup auth with Better Auth (Email, OAuth)
+
+---
+
+## 07.01.2025
+
 - [x] Fix path mapping issue with `.css.ts` files (there is no easy fix)
-- [ ] Fix color issue on line 378 in reset.css.ts
+- [x] Fix color issue on line 378 in reset.css.ts
 
 ---
 

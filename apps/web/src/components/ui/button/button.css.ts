@@ -1,7 +1,28 @@
+import { keyframes, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
 import { focusRing } from '../../../styles/utils.css';
 import { vars } from '../../../styles/vars.css';
+
+const rippleKeyframes = keyframes({
+    '0%': {
+        transform: 'scale(0)',
+        opacity: 0.35
+    },
+    '100%': {
+        transform: 'scale(2)',
+        opacity: 0
+    }
+});
+
+export const ripple = style({
+    position: 'absolute',
+    borderRadius: '50%',
+    backgroundColor: 'currentColor',
+    pointerEvents: 'none',
+    transform: 'scale(0)',
+    animation: `${rippleKeyframes} 600ms linear`
+});
 
 export const buttonRecipe = recipe({
     base: {
@@ -13,6 +34,8 @@ export const buttonRecipe = recipe({
         fontSize: vars.fontSizes.sm,
         fontWeight: vars.fontWeights.medium,
         cursor: 'pointer',
+        position: 'relative',
+        overflow: 'hidden',
         transition: `all ${vars.transitions.fast} ${vars.easings.default}`,
         border: '1px solid transparent',
         selectors: {

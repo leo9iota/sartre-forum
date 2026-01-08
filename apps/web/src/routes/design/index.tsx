@@ -75,6 +75,18 @@ export default function DesignIndexPage() {
               User profile images.
             </p>
           </A>
+          <A href='/design/components/spinner' class={styles.card}>
+            <h3>Spinner</h3>
+            <p style={{ 'font-size': '0.875rem', color: 'var(--foreground-muted)' }}>
+              Circular progress indicator.
+            </p>
+          </A>
+          <A href='/design/components/progress' class={styles.card}>
+            <h3>Progress</h3>
+            <p style={{ 'font-size': '0.875rem', color: 'var(--foreground-muted)' }}>
+              Linear and circular indicators.
+            </p>
+          </A>
         </div>
       </section>
     </>

@@ -28,6 +28,16 @@ export default function ComponentsIndexPage() {
       href: '/design/components/tabs',
       name: 'Tabs',
       desc: 'Tabbed interface for content organization.'
+    },
+    {
+      href: '/design/components/spinner',
+      name: 'Spinner',
+      desc: 'Circular progress indicator with smooth animation.'
+    },
+    {
+      href: '/design/components/progress',
+      name: 'Progress',
+      desc: 'Linear and circular progress indicators.'
     }
   ];
 

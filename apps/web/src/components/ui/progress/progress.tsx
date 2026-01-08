@@ -24,7 +24,10 @@ interface BaseProgressProps extends Omit<Progress.RootProps, 'children'> {
   class?: string;
 }
 
-export type ProgressBarProps = BaseProgressProps;
+export interface ProgressBarProps extends BaseProgressProps {
+  /** Animation style for indeterminate state: 'slide' (animated) or 'none' (static) */
+  animation?: 'slide' | 'none';
+}
 
 export interface ProgressCircleProps extends BaseProgressProps {
   /** Stroke thickness (default: 4) */
@@ -46,10 +49,18 @@ export interface ProgressCircleProps extends BaseProgressProps {
  * ```
  */
 export function ProgressBar(props: ProgressBarProps) {
-  const [local, rest] = splitProps(props, ['size', 'color', 'showValue', 'label', 'class']);
+  const [local, rest] = splitProps(props, [
+    'size',
+    'color',
+    'showValue',
+    'label',
+    'animation',
+    'class'
+  ]);
 
   const size = () => local.size ?? 'md';
   const color = () => local.color ?? 'primary';
+  const animation = () => local.animation ?? 'slide';
 
   return (
     <Progress.Root
@@ -65,7 +76,9 @@ export function ProgressBar(props: ProgressBarProps) {
         </div>
       )}
       <Progress.Track class={`${styles.progressBarTrack} ${styles.barTrackSizes[size()]}`}>
-        <Progress.Range class={`${styles.progressBarRange} ${styles.progressBarRangeColored}`} />
+        <Progress.Range
+          class={`${styles.progressBarRange} ${styles.progressBarRangeColored} ${animation() === 'slide' ? styles.progressBarRangeAnimated : ''}`}
+        />
       </Progress.Track>
     </Progress.Root>
   );

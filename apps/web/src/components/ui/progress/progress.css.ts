@@ -61,11 +61,22 @@ export const progressBarTrack = style({
     overflow: 'hidden'
 });
 
+// Base range style (no animation)
 export const progressBarRange = style({
     height: '100%',
     backgroundColor: colorVars.primary,
     borderRadius: staticVars.radii.full,
     transition: `width 300ms ${staticVars.easings.easeOut}`,
+    selectors: {
+        // Static indeterminate - just show full width
+        '[data-state="loading"] &': {
+            width: '100%'
+        }
+    }
+});
+
+// Animated range style (slide animation for indeterminate)
+export const progressBarRangeAnimated = style({
     selectors: {
         '[data-state="loading"] &': {
             width: '25%',

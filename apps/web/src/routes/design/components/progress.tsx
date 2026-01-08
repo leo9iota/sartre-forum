@@ -66,10 +66,18 @@ export default function ProgressPage() {
         </div>
 
         <h3 style={{ 'font-size': '1rem', 'margin-top': '1.5rem', 'margin-bottom': '0.75rem' }}>
-          Indeterminate
+          Indeterminate (Animation)
         </h3>
-        <div style={{ 'max-width': '400px' }}>
-          <ProgressBar value={null} label='Loading...' />
+        <div
+          style={{
+            display: 'flex',
+            'flex-direction': 'column',
+            gap: '1rem',
+            'max-width': '400px'
+          }}
+        >
+          <ProgressBar value={null} label='Slide (default)' animation='slide' />
+          <ProgressBar value={null} label='None (static)' animation='none' />
         </div>
       </section>
 

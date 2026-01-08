@@ -1,11 +1,11 @@
 import { createSignal, splitProps } from 'solid-js';
 import type { ParentProps } from 'solid-js';
 
-import * as KobalteSwitch from '@kobalte/core/switch';
+import { Switch as ArkSwitch } from '@ark-ui/solid/switch';
 
 import * as styles from './switch.css';
 
-export interface SwitchProps extends Omit<KobalteSwitch.SwitchRootProps, 'children'>, ParentProps {
+export interface SwitchProps extends Omit<ArkSwitch.RootProps, 'children'>, ParentProps {
   size?: 'sm' | 'md' | 'lg'; // Kept for API compatibility
   class?: string;
 }
@@ -18,7 +18,7 @@ export const Switch = (props: SwitchProps) => {
   const [isPressed, setIsPressed] = createSignal(false);
 
   return (
-    <KobalteSwitch.Root
+    <ArkSwitch.Root
       class={`${styles.switchRoot} ${local.class ?? ''}`}
       {...rest}
       onPointerDown={() => setIsPressed(true)}
@@ -26,13 +26,13 @@ export const Switch = (props: SwitchProps) => {
       onPointerLeave={() => setIsPressed(false)}
       data-pressed={isPressed() ? '' : undefined}
     >
-      <KobalteSwitch.Input class={styles.switchInput} />
-      <KobalteSwitch.Control class={styles.switchControl}>
-        <KobalteSwitch.Thumb class={styles.switchThumb} />
-      </KobalteSwitch.Control>
+      <ArkSwitch.HiddenInput class={styles.switchInput} />
+      <ArkSwitch.Control class={styles.switchControl}>
+        <ArkSwitch.Thumb class={styles.switchThumb} />
+      </ArkSwitch.Control>
       {local.children && (
-        <KobalteSwitch.Label class={styles.switchLabel}>{local.children}</KobalteSwitch.Label>
+        <ArkSwitch.Label class={styles.switchLabel}>{local.children}</ArkSwitch.Label>
       )}
-    </KobalteSwitch.Root>
+    </ArkSwitch.Root>
   );
 };

@@ -43,6 +43,33 @@ export const staticVars = createGlobalTheme(':root', {
         heading: "'Space Mono', monospace",
         body: "'Inter', system-ui, sans-serif",
         mono: "'Space Mono', monospace"
+    },
+    transitions: {
+        fast: '150ms',
+        normal: '200ms',
+        slow: '300ms'
+    },
+    easings: {
+        default: 'ease',
+        easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
+        easeOut: 'cubic-bezier(0, 0, 0.2, 1)',
+        easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        spring: 'cubic-bezier(0.2, 0.8, 0.2, 1)'
+    },
+    zIndices: {
+        base: '0',
+        dropdown: '1000',
+        sticky: '1100',
+        modal: '1300',
+        popover: '1400',
+        tooltip: '1500'
+    },
+    shadows: {
+        xs: '0 1px 2px rgba(0, 0, 0, 0.05)',
+        sm: '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)',
+        md: '0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)',
+        lg: '0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)',
+        xl: '0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04)'
     }
 });
 
@@ -59,7 +86,17 @@ export const colorVars = createThemeContract({
     primaryHover: null,
     accent: null,
     border: null,
-    borderStrong: null
+    borderStrong: null,
+    // Semantic state colors
+    error: null,
+    errorMuted: null,
+    success: null,
+    successMuted: null,
+    warning: null,
+    warningMuted: null,
+    // UI-specific
+    ring: null,
+    overlay: null
 });
 
 /**

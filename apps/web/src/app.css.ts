@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
+import { focusRing } from './styles/utils.css';
 import { vars } from './styles/vars.css';
 
 export const nav = style({
@@ -23,6 +24,9 @@ export const navLink = style({
     selectors: {
         '&:hover': {
             color: vars.colors.foregroundMuted
+        },
+        '&:focus-visible': {
+            ...focusRing
         }
     }
 });

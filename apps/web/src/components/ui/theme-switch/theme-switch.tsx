@@ -1,13 +1,13 @@
 import { createSignal, splitProps } from 'solid-js';
 import type { ParentProps } from 'solid-js';
 
-import * as KobalteSwitch from '@kobalte/core/switch';
+import { Switch as ArkSwitch } from '@ark-ui/solid/switch';
 
-import { useTheme } from '../../../lib/theme-context';
+import { useTheme } from '../../../lib/theme/theme-context';
 import * as styles from './theme-switch.css';
 
 export interface ThemeSwitchProps
-  extends Omit<KobalteSwitch.SwitchRootProps, 'children' | 'checked' | 'onChange'>, ParentProps {
+  extends Omit<ArkSwitch.RootProps, 'children' | 'checked' | 'onCheckedChange'>, ParentProps {
   class?: string;
   /**
    * Show label with sun/moon emoji
@@ -28,28 +28,28 @@ export const ThemeSwitch = (props: ThemeSwitchProps) => {
   const showLabel = () => local.showLabel !== false;
 
   return (
-    <KobalteSwitch.Root
+    <ArkSwitch.Root
       class={`${styles.switchRoot} ${local.class ?? ''}`}
       {...rest}
       checked={theme() === 'dark'}
-      onChange={toggleTheme}
+      onCheckedChange={() => toggleTheme()}
       onPointerDown={() => setIsPressed(true)}
       onPointerUp={() => setIsPressed(false)}
       onPointerLeave={() => setIsPressed(false)}
       data-pressed={isPressed() ? '' : undefined}
     >
-      <KobalteSwitch.Input class={styles.switchInput} />
-      <KobalteSwitch.Control class={styles.switchControl}>
-        <KobalteSwitch.Thumb class={styles.switchThumb} />
-      </KobalteSwitch.Control>
+      <ArkSwitch.HiddenInput class={styles.switchInput} />
+      <ArkSwitch.Control class={styles.switchControl}>
+        <ArkSwitch.Thumb class={styles.switchThumb} />
+      </ArkSwitch.Control>
       {showLabel() && (
-        <KobalteSwitch.Label class={styles.switchLabel}>
+        <ArkSwitch.Label class={styles.switchLabel}>
           {theme() === 'dark' ? '🌙' : '☀️'}
-        </KobalteSwitch.Label>
+        </ArkSwitch.Label>
       )}
       {local.children && (
-        <KobalteSwitch.Label class={styles.switchLabel}>{local.children}</KobalteSwitch.Label>
+        <ArkSwitch.Label class={styles.switchLabel}>{local.children}</ArkSwitch.Label>
       )}
-    </KobalteSwitch.Root>
+    </ArkSwitch.Root>
   );
 };

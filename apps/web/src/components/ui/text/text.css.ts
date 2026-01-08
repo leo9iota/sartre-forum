@@ -5,12 +5,12 @@ import { vars } from '../../../styles/vars.css';
 
 export const textRecipe = recipe({
     base: {
-        margin: 0 // We keep margins zero and use layout components for spacing
+        margin: 0 // we keep margins zero and use layout components for spacing
     },
 
     variants: {
         variant: {
-            // Headings - use the heading font
+            // Headings, use the heading font
             h1: {
                 fontFamily: vars.fonts.heading,
                 fontSize: vars.fontSizes['4xl'],

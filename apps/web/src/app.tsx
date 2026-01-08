@@ -3,7 +3,7 @@ import { JSX, Suspense } from 'solid-js';
 import { Router } from '@solidjs/router';
 import { FileRoutes } from '@solidjs/start/router';
 
-import { ThemeProvider, useTheme } from './lib/theme-context';
+import { ThemeProvider, useTheme } from './lib/theme/theme-context';
 import { darkTheme, lightTheme } from './styles/theme.css';
 
 import './styles/reset.css'; // Preflight/Reset

@@ -1,5 +1,6 @@
 import { recipe } from '@vanilla-extract/recipes';
 
+import { focusRing } from '../../../styles/utils.css';
 import { vars } from '../../../styles/vars.css';
 
 export const buttonRecipe = recipe({
@@ -12,7 +13,7 @@ export const buttonRecipe = recipe({
         fontSize: vars.fontSizes.sm,
         fontWeight: vars.fontWeights.medium,
         cursor: 'pointer',
-        transition: 'all 0.15s ease',
+        transition: `all ${vars.transitions.fast} ${vars.easings.default}`,
         border: '1px solid transparent',
         selectors: {
             '&:disabled': {
@@ -20,9 +21,7 @@ export const buttonRecipe = recipe({
                 cursor: 'not-allowed'
             },
             '&:focus-visible': {
-                outline: '2px solid',
-                outlineColor: vars.colors.primary,
-                outlineOffset: '2px'
+                ...focusRing
             }
         }
     },

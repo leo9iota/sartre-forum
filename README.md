@@ -4,7 +4,7 @@ Sartre is a forum for discussing tech related topics.
 
 ## BEST Stack
 
-**B**un · **E**lysia · **S**olid · **T**urso
+[**B**]un + [**E**]lysia + [**S**]olid + [**T**]urso
 
 A modern, type-safe, and performant full-stack TypeScript stack optimized for developer experience and runtime performance.
 

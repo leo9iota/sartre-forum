@@ -23,7 +23,9 @@ const navItems = {
     { href: '/design/components/menu', label: 'Menu' },
     { href: '/design/components/avatar', label: 'Avatar' },
     { href: '/design/components/text', label: 'Text' },
-    { href: '/design/components/tabs', label: 'Tabs' }
+    { href: '/design/components/tabs', label: 'Tabs' },
+    { href: '/design/components/spinner', label: 'Spinner' },
+    { href: '/design/components/progress', label: 'Progress' }
   ]
 };
 

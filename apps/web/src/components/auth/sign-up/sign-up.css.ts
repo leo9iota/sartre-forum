@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { staticVars, vars } from '@/styles/vars.css';
+import { staticVars, vars } from '../../../styles/vars.css';
 
 export const authContainer = style({
     display: 'flex',

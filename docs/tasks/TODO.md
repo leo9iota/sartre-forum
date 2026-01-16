@@ -1,11 +1,18 @@
 # TODO
 
+
+## 16.01.2025
+
+- [ ] Implement basic landing page with posts
+- [ ] Implement admin auth via GitHub OAuth
+- [ ] Implement admin dashboard
+
 ---
 
 ## 08.01.2025
 
-- [ ] Implement design system with Vanilla Extract
-- [ ] Setup auth with Better Auth (Email, OAuth)
+- [x] Implement design system with Vanilla Extract
+- [x] Setup auth with Better Auth
 
 ---
 

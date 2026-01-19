@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config';
-import solid from '@astrojs/solid-js';
-import node from '@astrojs/node';
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import path from 'node:path';
+import node from '@astrojs/node';
+import solid from '@astrojs/solid-js';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
     integrations: [solid()],

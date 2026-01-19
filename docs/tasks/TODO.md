@@ -1,6 +1,5 @@
 # TODO
 
-
 ## 16.01.2025
 
 - [ ] Pivot to Astro

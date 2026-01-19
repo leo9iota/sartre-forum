@@ -9,14 +9,8 @@
     "trailingComma": "none",
     "arrowParens": "avoid",
     "endOfLine": "lf",
-    "plugins": [
-        "@ianvs/prettier-plugin-sort-imports",
-        "prettier-plugin-astro"
-    ],
-    "importOrderParserPlugins": [
-        "typescript",
-        "decorators-legacy"
-    ],
+    "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-astro"],
+    "importOrderParserPlugins": ["typescript", "decorators-legacy"],
     "importOrder": [
         "<THIRD_PARTY_MODULES>",
         "",

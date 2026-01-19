@@ -1,7 +1,9 @@
 # TODO
 
+
 ## 16.01.2025
 
+- [ ] Pivot to Astro
 - [ ] Implement basic landing page with posts
 - [ ] Implement admin auth via GitHub OAuth
 - [ ] Implement admin dashboard

@@ -1,0 +1,91 @@
+---
+import DesignLayout from '@/layouts/DesignLayout.astro';
+import * as styles from './design.css';
+---
+
+<DesignLayout>
+  <header class={styles.pageHeader}>
+    <h1 class={styles.pageTitle}>Design System</h1>
+    <p class={styles.pageDescription}>
+      Tokens, foundations, and components for building consistent interfaces.
+    </p>
+  </header>
+
+  <section class={styles.section}>
+    <h2 class={styles.sectionTitle}>Foundations</h2>
+    <div class={styles.grid}>
+      <a href="/design/colors" class={styles.card}>
+        <h3>Colors</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Theme-aware color tokens.
+        </p>
+      </a>
+      <a href="/design/typography" class={styles.card}>
+        <h3>Typography</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Font scales and text styles.
+        </p>
+      </a>
+      <a href="/design/spacing" class={styles.card}>
+        <h3>Spacing</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Consistent spacing scale.
+        </p>
+      </a>
+      <a href="/design/shadows" class={styles.card}>
+        <h3>Shadows</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Elevation and depth.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class={styles.section}>
+    <h2 class={styles.sectionTitle}>Components</h2>
+    <div class={styles.grid}>
+      <a href="/design/components/button" class={styles.card}>
+        <h3>Button</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Action triggers with variants.
+        </p>
+      </a>
+      <a href="/design/components/input" class={styles.card}>
+        <h3>Input</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Text input fields.
+        </p>
+      </a>
+      <a href="/design/components/switch" class={styles.card}>
+        <h3>Switch</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Boolean toggle control.
+        </p>
+      </a>
+      <a href="/design/components/menu" class={styles.card}>
+        <h3>Menu</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Dropdown with nested items.
+        </p>
+      </a>
+      <a href="/design/components/avatar" class={styles.card}>
+        <h3>Avatar</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          User profile images.
+        </p>
+      </a>
+      <a href="/design/components/spinner" class={styles.card}>
+        <h3>Spinner</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Circular progress indicator.
+        </p>
+      </a>
+      <a href="/design/components/progress" class={styles.card}>
+        <h3>Progress</h3>
+        <p style="font-size: 0.875rem; color: var(--foreground-muted)">
+          Linear and circular indicators.
+        </p>
+      </a>
+    </div>
+  </section>
+</DesignLayout>

@@ -1,0 +1,35 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@/styles/reset.css';
+import '@/styles/global.css';
+import '@/styles/theme.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Sartre" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <header style="padding: 1rem; border-bottom: 1px solid #ccc;">
+      <nav style="display: flex; gap: 1rem;">
+        <a href="/">Home</a>
+        <a href="/design">Design System</a>
+        <a href="/dashboard">Dashboard</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

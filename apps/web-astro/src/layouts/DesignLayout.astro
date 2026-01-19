@@ -1,0 +1,74 @@
+---
+import MainLayout from './MainLayout.astro';
+import * as styles from '@/pages/design/design.css';
+
+const navItems = {
+  foundations: [
+    { href: '/design', label: 'Overview' },
+    { href: '/design/colors', label: 'Colors' },
+    { href: '/design/typography', label: 'Typography' },
+    { href: '/design/spacing', label: 'Spacing' },
+    { href: '/design/radii', label: 'Radii' },
+    { href: '/design/shadows', label: 'Shadows' }
+  ],
+  components: [
+    { href: '/design/components', label: 'Overview' },
+    { href: '/design/components/button', label: 'Button' },
+    { href: '/design/components/input', label: 'Input' },
+    { href: '/design/components/switch', label: 'Switch' },
+    { href: '/design/components/menu', label: 'Menu' },
+    { href: '/design/components/avatar', label: 'Avatar' },
+    { href: '/design/components/text', label: 'Text' },
+    { href: '/design/components/tabs', label: 'Tabs' },
+    { href: '/design/components/spinner', label: 'Spinner' },
+    { href: '/design/components/progress', label: 'Progress' }
+  ]
+};
+
+const { pathname } = Astro.url;
+
+const isActive = (href: string) => {
+    if (href === '/design') {
+      return pathname === '/design';
+    }
+    return pathname.startsWith(href);
+};
+---
+
+<MainLayout title="Design System - Sartre">
+  <div class={styles.layoutWrapper}>
+    <aside class={styles.sidebar}>
+      <div class={styles.sidebarTitle}>Design System</div>
+
+      <nav class={styles.navGroup}>
+        <div class={styles.navGroupLabel}>Foundations</div>
+        <ul class={styles.navList}>
+          {navItems.foundations.map(item => (
+            <li>
+              <a href={item.href} class={styles.navItem} data-active={isActive(item.href)}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class={styles.navGroup}>
+        <div class={styles.navGroupLabel}>Components</div>
+        <ul class={styles.navList}>
+          {navItems.components.map(item => (
+            <li>
+              <a href={item.href} class={styles.navItem} data-active={isActive(item.href)}>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+
+    <main class={styles.mainContent}>
+        <slot />
+    </main>
+  </div>
+</MainLayout>

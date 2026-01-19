@@ -1,0 +1,16 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { Button } from '@/components/ui/button';
+import * as styles from './homepage.css';
+---
+
+<MainLayout title="Sartre">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh; gap: 2rem;">
+    <h1>Welcome to Sartre</h1>
+    <p>A forum for discussing tech related topics.</p>
+    <div style="display: flex; gap: 1rem;">
+      <a href="/design"><Button variant="outline">View Design System</Button></a>
+      <a href="/dashboard"><Button>Go to Dashboard</Button></a>
+    </div>
+  </div>
+</MainLayout>

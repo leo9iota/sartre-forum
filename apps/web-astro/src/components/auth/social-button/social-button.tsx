@@ -1,9 +1,10 @@
-import { Component, createSignal, Show } from 'solid-js';
+import { createSignal, Show } from 'solid-js';
+import type { Component } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
+import { GithubIcon } from '@/components/icons/github-icon';
+import { GoogleIcon } from '@/components/icons/google-icon';
 import { Spinner } from '@/components/ui/spinner';
-import { GithubIcon, GoogleIcon } from '@/components/icons/github-icon';
-
 import { authClient } from '@/lib/auth/auth-client';
 
 import * as styles from './social-button.css';
@@ -39,9 +40,9 @@ export const SocialButton = (props: SocialButtonProps) => {
   };
 
   return (
-    <button type='button' class={styles.socialButton} onClick={handleClick} disabled={loading()}>
+    <button type="button" class={styles.socialButton} onClick={handleClick} disabled={loading()}>
       <Show when={loading()} fallback={<Dynamic component={config().Icon} class={styles.icon} />}>
-        <Spinner size='sm' />
+        <Spinner size="sm" />
       </Show>
       <span>Continue with {config().label}</span>
     </button>

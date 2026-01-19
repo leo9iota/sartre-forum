@@ -15,34 +15,34 @@ export default function SpinnerPage() {
       <section class={styles.section}>
         <h2 class={styles.sectionTitle}>Sizes</h2>
         <div class={styles.demoRow} style={{ 'align-items': 'center' }}>
-          <Spinner size='xs' />
-          <Spinner size='sm' />
-          <Spinner size='md' />
-          <Spinner size='lg' />
-          <Spinner size='xl' />
+          <Spinner size="xs" />
+          <Spinner size="sm" />
+          <Spinner size="md" />
+          <Spinner size="lg" />
+          <Spinner size="xl" />
         </div>
       </section>
 
       <section class={styles.section}>
         <h2 class={styles.sectionTitle}>Colors</h2>
         <div class={styles.demoRow} style={{ 'align-items': 'center' }}>
-          <Spinner color='primary' />
-          <Spinner color='accent' />
-          <Spinner color='foreground' />
-          <Spinner color='muted' />
-          <Spinner color='success' />
-          <Spinner color='warning' />
-          <Spinner color='error' />
+          <Spinner color="primary" />
+          <Spinner color="accent" />
+          <Spinner color="foreground" />
+          <Spinner color="muted" />
+          <Spinner color="success" />
+          <Spinner color="warning" />
+          <Spinner color="error" />
         </div>
       </section>
 
       <section class={styles.section}>
         <h2 class={styles.sectionTitle}>Thickness</h2>
         <div class={styles.demoRow} style={{ 'align-items': 'center' }}>
-          <Spinner size='lg' thickness={2} />
-          <Spinner size='lg' thickness={3.6} />
-          <Spinner size='lg' thickness={5} />
-          <Spinner size='lg' thickness={8} />
+          <Spinner size="lg" thickness={2} />
+          <Spinner size="lg" thickness={3.6} />
+          <Spinner size="lg" thickness={5} />
+          <Spinner size="lg" thickness={8} />
         </div>
       </section>
 
@@ -62,7 +62,7 @@ export default function SpinnerPage() {
               cursor: 'pointer'
             }}
           >
-            <Spinner size='sm' color='inherit' />
+            <Spinner size="sm" color="inherit" />
             Loading...
           </button>
         </div>

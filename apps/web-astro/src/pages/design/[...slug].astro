@@ -1,0 +1,50 @@
+---
+// Foundations
+import ColorsPage from '@/components/design-system-pages/colors';
+import AvatarPage from '@/components/design-system-pages/components/avatar';
+import ButtonPage from '@/components/design-system-pages/components/button';
+// Components
+import ComponentsIndex from '@/components/design-system-pages/components/index';
+import InputPage from '@/components/design-system-pages/components/input';
+import MenuPage from '@/components/design-system-pages/components/menu';
+import ProgressPage from '@/components/design-system-pages/components/progress';
+import SpinnerPage from '@/components/design-system-pages/components/spinner';
+import SwitchPage from '@/components/design-system-pages/components/switch';
+import TabsPage from '@/components/design-system-pages/components/tabs';
+import TextPage from '@/components/design-system-pages/components/text';
+import RadiiPage from '@/components/design-system-pages/radii';
+import ShadowsPage from '@/components/design-system-pages/shadows';
+import SpacingPage from '@/components/design-system-pages/spacing';
+import TypographyPage from '@/components/design-system-pages/typography';
+
+import DesignLayout from '@/layouts/DesignLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    // Foundations
+    { params: { slug: 'colors' }, props: { Component: ColorsPage } },
+    { params: { slug: 'radii' }, props: { Component: RadiiPage } },
+    { params: { slug: 'shadows' }, props: { Component: ShadowsPage } },
+    { params: { slug: 'spacing' }, props: { Component: SpacingPage } },
+    { params: { slug: 'typography' }, props: { Component: TypographyPage } },
+
+    // Components
+    { params: { slug: 'components' }, props: { Component: ComponentsIndex } },
+    { params: { slug: 'components/avatar' }, props: { Component: AvatarPage } },
+    { params: { slug: 'components/button' }, props: { Component: ButtonPage } },
+    { params: { slug: 'components/input' }, props: { Component: InputPage } },
+    { params: { slug: 'components/menu' }, props: { Component: MenuPage } },
+    { params: { slug: 'components/progress' }, props: { Component: ProgressPage } },
+    { params: { slug: 'components/spinner' }, props: { Component: SpinnerPage } },
+    { params: { slug: 'components/switch' }, props: { Component: SwitchPage } },
+    { params: { slug: 'components/tabs' }, props: { Component: TabsPage } },
+    { params: { slug: 'components/text' }, props: { Component: TextPage } }
+  ];
+}
+
+const { Component } = Astro.props;
+---
+
+<DesignLayout>
+  <Component client:load />
+</DesignLayout>

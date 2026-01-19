@@ -7,20 +7,16 @@
 // Ideally, we'd refactor this to be mostly server-rendered with small interactive islands.
 
 import { DashboardClient } from '@/components/dashboard-client';
-import { Button } from '@/components/ui/button';
-import { authClient } from '@/lib/auth/auth-client';
 
 import MainLayout from '@/layouts/MainLayout.astro';
-
-import * as styles from './dashboard.css';
 
 // Server-side Protection (Redundant with Middleware but good practice)
 const sessionToken = Astro.cookies.get('better-auth.session_token');
 if (!sessionToken?.value) {
-    return Astro.redirect('/sign-in');
+  return Astro.redirect('/sign-in');
 }
 ---
 
 <MainLayout title="Dashboard">
-    <DashboardClient client:load />
+  <DashboardClient client:load />
 </MainLayout>

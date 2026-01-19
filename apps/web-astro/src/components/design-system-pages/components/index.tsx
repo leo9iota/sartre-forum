@@ -1,6 +1,5 @@
-import { For } from 'solid-js';
-
 import { A } from '@solidjs/router';
+import { For } from 'solid-js';
 
 import * as styles from '../design.css';
 
@@ -17,13 +16,21 @@ export default function ComponentsIndexPage() {
       desc: 'Text input fields with size variants.'
     },
     { href: '/design/components/switch', name: 'Switch', desc: 'Boolean toggle control.' },
-    { href: '/design/components/menu', name: 'Menu', desc: 'Dropdown menu with nested submenus.' },
+    {
+      href: '/design/components/menu',
+      name: 'Menu',
+      desc: 'Dropdown menu with nested submenus.'
+    },
     {
       href: '/design/components/avatar',
       name: 'Avatar',
       desc: 'User profile images with fallback initials.'
     },
-    { href: '/design/components/text', name: 'Text', desc: 'Typography component with variants.' },
+    {
+      href: '/design/components/text',
+      name: 'Text',
+      desc: 'Typography component with variants.'
+    },
     {
       href: '/design/components/tabs',
       name: 'Tabs',
@@ -56,7 +63,12 @@ export default function ComponentsIndexPage() {
             {c => (
               <A href={c.href} class={styles.card}>
                 <h3>{c.name}</h3>
-                <p style={{ 'font-size': '0.875rem', color: 'var(--foreground-muted)' }}>
+                <p
+                  style={{
+                    'font-size': '0.875rem',
+                    color: 'var(--foreground-muted)'
+                  }}
+                >
                   {c.desc}
                 </p>
               </A>

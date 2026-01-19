@@ -39,7 +39,13 @@ export default function SpacingPage() {
         <div style={{ display: 'flex', 'flex-direction': 'column', gap: vars.space[3] }}>
           <For each={spacingTokens}>
             {token => (
-              <div style={{ display: 'flex', 'align-items': 'center', gap: vars.space[4] }}>
+              <div
+                style={{
+                  display: 'flex',
+                  'align-items': 'center',
+                  gap: vars.space[4]
+                }}
+              >
                 <span class={styles.tokenLabel} style={{ width: '4rem' }}>
                   space.{token.name}
                 </span>

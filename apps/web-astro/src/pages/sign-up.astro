@@ -1,0 +1,11 @@
+---
+import { SignUp as SignUpComponent } from '@/components/auth/sign-up';
+
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+
+<MainLayout title="Sign Up">
+    <div style="display: flex; align-items: center; justify-content: center; min-height: 80vh;">
+        <SignUpComponent client:load />
+    </div>
+</MainLayout>

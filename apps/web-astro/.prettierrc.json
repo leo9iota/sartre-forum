@@ -10,19 +10,28 @@
     "arrowParens": "avoid",
     "endOfLine": "lf",
     "plugins": [
-        "@ianvs/prettier-plugin-sort-imports",
-        "prettier-plugin-astro"
+        "prettier-plugin-astro",
+        "@ianvs/prettier-plugin-sort-imports"
+    ],
+    "overrides": [
+        {
+            "files": "*.astro",
+            "options": {
+                "parser": "astro"
+            }
+        }
     ],
     "importOrderParserPlugins": [
         "typescript",
-        "decorators-legacy"
+        "decorators-legacy",
+        "jsx"
     ],
     "importOrder": [
         "<THIRD_PARTY_MODULES>",
         "",
-        "^@/db/(.*)$",
+        "^@/styles/(.*)$",
+        "^@/components/(.*)$",
         "^@/lib/(.*)$",
-        "^@/utils/(.*)$",
         "",
         "^@/(.*)$",
         "",

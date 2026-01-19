@@ -21,28 +21,47 @@ import DesignLayout from '@/layouts/DesignLayout.astro';
 
 export function getStaticPaths() {
   return [
-    // Foundations
-    { params: { slug: 'colors' }, props: { Component: ColorsPage } },
-    { params: { slug: 'radii' }, props: { Component: RadiiPage } },
-    { params: { slug: 'shadows' }, props: { Component: ShadowsPage } },
-    { params: { slug: 'spacing' }, props: { Component: SpacingPage } },
-    { params: { slug: 'typography' }, props: { Component: TypographyPage } },
-
-    // Components
-    { params: { slug: 'components' }, props: { Component: ComponentsIndex } },
-    { params: { slug: 'components/avatar' }, props: { Component: AvatarPage } },
-    { params: { slug: 'components/button' }, props: { Component: ButtonPage } },
-    { params: { slug: 'components/input' }, props: { Component: InputPage } },
-    { params: { slug: 'components/menu' }, props: { Component: MenuPage } },
-    { params: { slug: 'components/progress' }, props: { Component: ProgressPage } },
-    { params: { slug: 'components/spinner' }, props: { Component: SpinnerPage } },
-    { params: { slug: 'components/switch' }, props: { Component: SwitchPage } },
-    { params: { slug: 'components/tabs' }, props: { Component: TabsPage } },
-    { params: { slug: 'components/text' }, props: { Component: TextPage } }
+    { params: { slug: 'colors' } },
+    { params: { slug: 'radii' } },
+    { params: { slug: 'shadows' } },
+    { params: { slug: 'spacing' } },
+    { params: { slug: 'typography' } },
+    { params: { slug: 'components' } },
+    { params: { slug: 'components/avatar' } },
+    { params: { slug: 'components/button' } },
+    { params: { slug: 'components/input' } },
+    { params: { slug: 'components/menu' } },
+    { params: { slug: 'components/progress' } },
+    { params: { slug: 'components/spinner' } },
+    { params: { slug: 'components/switch' } },
+    { params: { slug: 'components/tabs' } },
+    { params: { slug: 'components/text' } }
   ];
 }
 
-const { Component } = Astro.props;
+export const prerender = true;
+
+const { slug } = Astro.params;
+
+const components: Record<string, typeof ColorsPage> = {
+  colors: ColorsPage,
+  radii: RadiiPage,
+  shadows: ShadowsPage,
+  spacing: SpacingPage,
+  typography: TypographyPage,
+  components: ComponentsIndex,
+  'components/avatar': AvatarPage,
+  'components/button': ButtonPage,
+  'components/input': InputPage,
+  'components/menu': MenuPage,
+  'components/progress': ProgressPage,
+  'components/spinner': SpinnerPage,
+  'components/switch': SwitchPage,
+  'components/tabs': TabsPage,
+  'components/text': TextPage
+};
+
+const Component = components[slug as keyof typeof components];
 ---
 
 <DesignLayout>

@@ -1,0 +1,26 @@
+---
+// Fetch user data directly from the server session if needed,
+// OR use a client-side island. For a dashboard, a client-side island
+// is often better if we want reactivity (e.g. "Sign Out"),
+// BUT since we want "Astro Speed", we can render the initial state on the server.
+// For now, let's make it a client island to keep parity with the original code's "signOut" behavior.
+// Ideally, we'd refactor this to be mostly server-rendered with small interactive islands.
+
+import { DashboardClient } from '@/components/dashboard-client';
+import { Button } from '@/components/ui/button';
+import { authClient } from '@/lib/auth/auth-client';
+
+import MainLayout from '@/layouts/MainLayout.astro';
+
+import * as styles from './dashboard.css';
+
+// Server-side Protection (Redundant with Middleware but good practice)
+const sessionToken = Astro.cookies.get('better-auth.session_token');
+if (!sessionToken?.value) {
+    return Astro.redirect('/sign-in');
+}
+---
+
+<MainLayout title="Dashboard">
+    <DashboardClient client:load />
+</MainLayout>

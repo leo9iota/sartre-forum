@@ -21,11 +21,12 @@ export default [
         languageOptions: {
             parser: tsParser,
             parserOptions: {
-                project: './tsconfig.json'
+                project: './tsconfig.json',
+                tsconfigRootDir: import.meta.dirname
             },
             globals: {
                 ...globals.browser,
-                ...globals.node
+                ...globals.node 
             }
         },
         plugins: {

@@ -9,23 +9,43 @@
     "trailingComma": "none",
     "arrowParens": "avoid",
     "endOfLine": "lf",
-    "plugins": [
-        "prettier-plugin-astro",
-        "@ianvs/prettier-plugin-sort-imports"
-    ],
+    "plugins": ["prettier-plugin-astro", "@ianvs/prettier-plugin-sort-imports"],
     "overrides": [
         {
             "files": "*.astro",
             "options": {
-                "parser": "astro"
+                "parser": "astro",
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": ["*.jsx", "*.tsx"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": [
+                "*.js",
+                "*.mjs",
+                "*.cjs",
+                "*.ts",
+                "*.d.ts",
+                "*.mts",
+                "*.cts",
+                "*.css",
+                "*.scss",
+                "*.less"
+            ],
+            "options": {
+                "tabWidth": 4,
+                "printWidth": 100
             }
         }
     ],
-    "importOrderParserPlugins": [
-        "typescript",
-        "decorators-legacy",
-        "jsx"
-    ],
+    "importOrderParserPlugins": ["typescript", "decorators-legacy", "jsx"],
     "importOrder": [
         "<THIRD_PARTY_MODULES>",
         "",

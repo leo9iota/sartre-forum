@@ -2,7 +2,7 @@ import { createSignal, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import type { Component } from 'solid-js';
 
-import { GithubIcon, GoogleIcon } from '../../icons';
+import { GithubIcon, GoogleIcon } from '../../ui/icons';
 import { Spinner } from '../../ui/spinner';
 import * as styles from './social-button.css';
 

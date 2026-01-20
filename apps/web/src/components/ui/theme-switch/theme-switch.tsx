@@ -1,4 +1,4 @@
-import { createSignal, splitProps } from 'solid-js';
+import { createSignal, onMount, splitProps } from 'solid-js';
 import type { ParentProps } from 'solid-js';
 
 import { Switch as ArkSwitch } from '@ark-ui/solid/switch';
@@ -14,36 +14,42 @@ export interface ThemeSwitchProps
    * @default true
    */
   showLabel?: boolean;
-  /**
-   * Current theme value
-   */
-  theme?: 'light' | 'dark';
-  /**
-   * Callback when theme changes
-   */
-  onThemeChange?: () => void;
 }
 
 /**
  * Theme switch component for toggling between light and dark modes.
- * Note: Requires theme context to be set up in the consuming app.
+ * Handles theme logic client-side via localStorage and document classList.
  */
 export const ThemeSwitch = (props: ThemeSwitchProps) => {
-  const [local, rest] = splitProps(props, [
-    'class',
-    'children',
-    'showLabel',
-    'theme',
-    'onThemeChange'
-  ]);
+  const [local, rest] = splitProps(props, ['class', 'children', 'showLabel']);
   const [isPressed, setIsPressed] = createSignal(false);
+  const [isDark, setIsDark] = createSignal(false);
+
+  // Initialize state from existing DOM/localStorage
+  onMount(() => {
+    // Check if dark mode is already active (set by inline script)
+    const hasDarkClass = document.documentElement.classList.contains('dark');
+    setIsDark(hasDarkClass);
+  });
+
+  const toggleTheme = (details: { checked: boolean }) => {
+    const newIsDark = details.checked;
+    setIsDark(newIsDark);
+
+    // Update DOM
+    document.documentElement.classList.toggle('dark', newIsDark);
+    document.documentElement.dataset.theme = newIsDark ? 'dark' : 'light';
+
+    // Persist
+    localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
+  };
 
   return (
     <ArkSwitch.Root
       class={`${styles.switchRoot} ${local.class ?? ''}`}
       {...rest}
-      checked={local.theme === 'dark'}
-      onCheckedChange={() => local.onThemeChange?.()}
+      checked={isDark()}
+      onCheckedChange={toggleTheme}
       onPointerDown={() => setIsPressed(true)}
       onPointerUp={() => setIsPressed(false)}
       onPointerLeave={() => setIsPressed(false)}

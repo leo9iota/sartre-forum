@@ -1,12 +1,14 @@
-import { createTheme } from '@vanilla-extract/css';
+import { createGlobalTheme } from '@vanilla-extract/css';
 
 import { colorVars } from './vars.css';
 
 /**
  * Light Theme - "Refined Utilitarian" Paper/Cream
  * Inspired by markdown documents and paper aesthetic
+ *
+ * Applied to :root by default
  */
-export const lightTheme = createTheme(colorVars, {
+createGlobalTheme(':root', colorVars, {
     background: '#f8f7ea', // Warm cream paper
     backgroundAlt: '#ede9da', // Slightly darker for cards/sections
     foreground: '#1A1A1A', // Near-black for maximum readability
@@ -33,8 +35,10 @@ export const lightTheme = createTheme(colorVars, {
 /**
  * Dark Theme - "Refined Utilitarian" Charcoal
  * Comfortable night reading with warm undertones
+ *
+ * Applied when .dark class is present on html/root
  */
-export const darkTheme = createTheme(colorVars, {
+createGlobalTheme(':root.dark', colorVars, {
     background: '#1C1C1E', // Deep charcoal
     backgroundAlt: '#2C2C2E', // Elevated surfaces
     foreground: '#E5E5E7', // Off-white for comfort

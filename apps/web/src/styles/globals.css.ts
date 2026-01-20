@@ -9,7 +9,9 @@ globalStyle('html, body', {
     fontFamily: vars.fonts.body,
     lineHeight: 1.6,
     WebkitFontSmoothing: 'antialiased',
-    MozOsxFontSmoothing: 'grayscale'
+    MozOsxFontSmoothing: 'grayscale',
+    backgroundColor: vars.colors.background,
+    color: vars.colors.foreground
 });
 
 globalStyle('a', {

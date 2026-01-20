@@ -4,6 +4,7 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
+// Forces restart
 export default defineConfig({
     integrations: [solidJs()],
     vite: {

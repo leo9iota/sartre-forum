@@ -3,8 +3,6 @@ import '../styles/reset.css.ts';
 import '../styles/globals.css.ts';
 import '../styles/theme.css.ts';
 
-import { lightTheme as themeClass } from '../styles/theme.css.ts';
-
 interface Props {
   title?: string;
   description?: string;
@@ -14,7 +12,7 @@ const { title = 'Sartre', description = 'A modern blog platform' } = Astro.props
 ---
 
 <!doctype html>
-<html lang='en' class={themeClass}>
+<html lang='en'>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />

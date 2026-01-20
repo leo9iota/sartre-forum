@@ -1,0 +1,85 @@
+{
+    "tabWidth": 4,
+    "printWidth": 100,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": [
+                "*.js",
+                "*.mjs",
+                "*.cjs",
+                "*.ts",
+                "*.d.ts",
+                "*.mts",
+                "*.cts",
+                "*.css",
+                "*.scss",
+                "*.less"
+            ],
+            "options": {
+                "tabWidth": 4,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": ["*.jsx", "*.tsx"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        },
+        {
+            "files": ["*.astro"],
+            "options": {
+                "tabWidth": 2,
+                "printWidth": 100
+            }
+        }
+    ],
+    "plugins": ["prettier-plugin-astro", "@ianvs/prettier-plugin-sort-imports"],
+    "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+    "importOrder": [
+        "^astro:(.*)$",
+        "<TYPES>^astro:(.*)$",
+        "",
+        "^solid-js$",
+        "^solid-js/(.*)$",
+        "<TYPES>^solid-js$",
+        "<TYPES>^solid-js/(.*)$",
+        "",
+        "^@solidjs/(.*)$",
+        "<TYPES>^@solidjs/(.*)$",
+        "",
+        "<THIRD_PARTY_MODULES>",
+        "<TYPES>",
+        "",
+        "^@/components/ui/(.*)$",
+        "<TYPES>^@/components/ui/(.*)$",
+        "^@/components/(.*)$",
+        "<TYPES>^@/components/(.*)$",
+        "",
+        "^@/layouts/(.*)$",
+        "<TYPES>^@/layouts/(.*)$",
+        "^@/hooks/(.*)$",
+        "<TYPES>^@/hooks/(.*)$",
+        "^@/lib/(.*)$",
+        "<TYPES>^@/lib/(.*)$",
+        "^@/utils/(.*)$",
+        "<TYPES>^@/utils/(.*)$",
+        "",
+        "^@/(.*)$",
+        "<TYPES>^@/(.*)$",
+        "",
+        "^[./]",
+        "<TYPES>^[./]"
+    ]
+}

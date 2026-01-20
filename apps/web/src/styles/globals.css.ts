@@ -2,16 +2,22 @@ import { globalStyle } from '@vanilla-extract/css';
 
 import { vars } from './vars.css';
 
-globalStyle('html, body', {
+globalStyle('html', {
     height: '100%',
+    backgroundColor: vars.colors.background,
+    color: vars.colors.foreground
+});
+
+globalStyle('body', {
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
     margin: 0,
     padding: 0,
     fontFamily: vars.fonts.body,
     lineHeight: 1.6,
     WebkitFontSmoothing: 'antialiased',
-    MozOsxFontSmoothing: 'grayscale',
-    backgroundColor: vars.colors.background,
-    color: vars.colors.foreground
+    MozOsxFontSmoothing: 'grayscale'
 });
 
 globalStyle('a', {

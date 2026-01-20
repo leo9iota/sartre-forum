@@ -4,6 +4,7 @@ import type { ParentProps } from 'solid-js';
 import { Switch as ArkSwitch } from '@ark-ui/solid/switch';
 import { Moon, Sun } from 'lucide-solid';
 
+import { visuallyHidden } from '../../../styles/utils.css';
 import * as styles from './theme-switch.css';
 
 export interface ThemeSwitchProps
@@ -62,9 +63,12 @@ export const ThemeSwitch = (props: ThemeSwitchProps) => {
           <Moon class={`${styles.switchIcon} moon`} />
         </ArkSwitch.Thumb>
       </ArkSwitch.Control>
-      {local.children && (
+      {local.children ? (
         <ArkSwitch.Label class={styles.switchLabel}>{local.children}</ArkSwitch.Label>
+      ) : (
+        <ArkSwitch.Label style={visuallyHidden}>Toggle theme</ArkSwitch.Label>
       )}
+      {/* Accessible label provided */}
     </ArkSwitch.Root>
   );
 };

@@ -3,6 +3,7 @@ import type { ParentProps } from 'solid-js';
 
 import { Switch as ArkSwitch } from '@ark-ui/solid/switch';
 
+import { visuallyHidden } from '../../../styles/utils.css';
 import * as styles from './switch.css';
 
 export interface SwitchProps extends Omit<ArkSwitch.RootProps, 'children'>, ParentProps {
@@ -30,9 +31,12 @@ export const Switch = (props: SwitchProps) => {
       <ArkSwitch.Control class={styles.switchControl}>
         <ArkSwitch.Thumb class={styles.switchThumb} />
       </ArkSwitch.Control>
-      {local.children && (
+      {local.children ? (
         <ArkSwitch.Label class={styles.switchLabel}>{local.children}</ArkSwitch.Label>
+      ) : (
+        <ArkSwitch.Label style={visuallyHidden}>Toggle</ArkSwitch.Label>
       )}
+      {/* Accessible label provided */}
     </ArkSwitch.Root>
   );
 };

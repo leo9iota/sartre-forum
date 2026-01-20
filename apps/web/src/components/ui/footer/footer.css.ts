@@ -3,7 +3,6 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../../styles/vars.css';
 
 export const footer = style({
-    marginTop: 'auto',
     backgroundColor: vars.colors.backgroundAlt,
     borderTopWidth: '1px',
     borderTopStyle: 'solid',
